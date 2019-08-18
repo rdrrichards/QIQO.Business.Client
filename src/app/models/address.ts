@@ -34,3 +34,13 @@ export interface AddressTypeData {
   updateUserID: string;
   updateDateTime: Date;
 }
+
+export interface AddressPostal {
+    countryName: string;
+    postalCode: string;
+    stateCode: string;
+    stateFullName: string;
+    cityName: string;
+    countyName: string;
+    timeZone: number;
+}
