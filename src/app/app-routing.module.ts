@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'invoices', loadChildren: () => import('./invoice/invoice.module').then(m => m.InvoiceModule) },
   { path: 'orders', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
   { path: 'products', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', component: NotFoundComponent }
 ];
 
