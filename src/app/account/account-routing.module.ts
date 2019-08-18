@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AccountComponent } from './account.component';
+import { AccountShellComponent } from './account-shell/account-shell.component';
 
-const routes: Routes = [{ path: '', component: AccountComponent }];
+const routes: Routes = [{ path: '', component: AccountShellComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
