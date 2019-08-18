@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProductComponent } from './product.component';
+import { ProductShellComponent } from './product-shell/product-shell.component';
 
-const routes: Routes = [{ path: '', component: ProductComponent }];
+const routes: Routes = [{ path: '', component: ProductShellComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

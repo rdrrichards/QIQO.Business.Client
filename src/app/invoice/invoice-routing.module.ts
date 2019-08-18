@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { InvoiceComponent } from './invoice.component';
+import { InvoiceShellComponent } from './invoice-shell/invoice-shell.component';
 
-const routes: Routes = [{ path: '', component: InvoiceComponent }];
+const routes: Routes = [{ path: '', component: InvoiceShellComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

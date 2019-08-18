@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OrderComponent } from './order.component';
+import { OrderShellComponent } from './order-shell/order-shell.component';
 
-const routes: Routes = [{ path: '', component: OrderComponent }];
+const routes: Routes = [{ path: '', component: OrderShellComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
