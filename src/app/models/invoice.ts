@@ -1,6 +1,7 @@
 import { Person } from './person';
 import { InvoiceStatus, InvoiceItemStatus } from './enums';
 import { Address } from './address';
+import { Product } from './product';
 
 export interface Invoice {
     invoiceKey: number;
@@ -61,7 +62,7 @@ export interface InvoiceItem {
     invoiceItemStatus: InvoiceItemStatus;
     invoiceItemStatusData: InvoiceItemStatusData;
 
-    // invoiceItemProduct: Product;
+    invoiceItemProduct: Product;
     addedUserID: string;
     addedDateTime: Date;
     updateUserID: string;
