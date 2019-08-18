@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountShellComponent } from './account-shell.component';
+import { AccountComponent } from '../account/account.component';
 
 describe('AccountShellComponent', () => {
   let component: AccountShellComponent;
@@ -8,7 +9,7 @@ describe('AccountShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountShellComponent ]
+      declarations: [ AccountShellComponent, AccountComponent ]
     })
     .compileComponents();
   }));
