@@ -1,6 +1,8 @@
 import { Employee } from './employee';
 import { EntityAttribute } from './entity';
 import { Address } from './address';
+import { Ledger } from './ledger';
+import { ChartOfAccount } from './chart-of-accounts';
 
 export interface Company {
     companyKey: number;
@@ -13,8 +15,8 @@ export interface Company {
     updateDateTime: Date;
 
     employees: Employee[];
-    // GLAccounts: ChartOfAccount[];
-    // ledgers: Ledger[];
+    glAccounts: ChartOfAccount[];
+    ledgers: Ledger[];
     companyAttributes: EntityAttribute[];
     companyAddresses: Address[];
 }
