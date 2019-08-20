@@ -1,0 +1,77 @@
+<div [hidden]="operation === 'create' && field.isId" [formGroup]="form">
+
+  <div [ngSwitch]="field.type">
+
+    <div *ngSwitchCase="'string'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly">
+    </div>
+
+    <div *ngSwitchCase="'number'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly"
+              type="number">
+    </div>
+
+    <div *ngSwitchCase="'date'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly"
+              type="date">
+    </div>
+
+    <div *ngSwitchCase="'email'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly"
+              type="email">
+    </div>
+
+    <div *ngSwitchCase="'select'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <select class="form-control" [formControlName]="field.key" [id]="field.key">
+              <option *ngFor='let opt of field.options' [value]="opt.value">{{opt.label}}</option>
+      </select>
+    </div>
+
+    <div *ngSwitchCase="'combo'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input list="listOptions" class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly">
+        <datalist id="listOptions">
+              <option *ngFor='let opt of field.options' [value]="opt.value">{{opt.label}}</option>
+        </datalist>
+    </div>
+
+    <div *ngSwitchCase="'color'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key"
+              [readonly]="isReadOnly"
+              type="color">
+    </div>
+
+    <div *ngSwitchCase="'boolean'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+      <input class="form-control" [formControlName]="field.key" [id]="field.key" type="checkbox">
+    </div>
+
+    <div *ngSwitchCase="'single-choice'" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+        <fieldset *ngFor='let opt of field.options'>
+          <input [formControlName]="field.key" [id]="field.key" type="radio" [value]="opt.value" class="single-choice"> {{opt.label}}<br/>
+        </fieldset>
+    </div>
+
+    <div *ngSwitchCase="'multi-choice'" [formGroupName]="field.key" class="form-group">
+      <label [htmlFor]="field.key">{{ field.label }}</label>
+        <fieldset *ngFor='let opt of field.options'>
+          <input [formControlName]="opt.value" [id]="field.key" type="checkbox" [value]="opt.value"
+            class="multi-choice"> {{opt.label}}<br/>
+        </fieldset>
+    </div>
+
+    <div *ngIf="isInvalid" class="alert alert-danger">{{ field.label }} is required.</div>
+  </div>
+</div>
