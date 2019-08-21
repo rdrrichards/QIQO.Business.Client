@@ -1,4 +1,5 @@
-import { OptionDefinition } from './option-defninition';
+// import { OptionDefinition } from './option-defninition';
+import { SelectItem } from 'primeng/api';
 
 export interface FieldDefinition {
   key: string;
@@ -6,5 +7,5 @@ export interface FieldDefinition {
   isId?: boolean;
   label: string;
   required?: boolean;
-  options?: OptionDefinition[];
+  options?: SelectItem[];
 }

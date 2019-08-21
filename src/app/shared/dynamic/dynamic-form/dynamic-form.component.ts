@@ -40,49 +40,6 @@ export class DynamicFormComponent implements OnChanges, OnInit {
       group[field.key] = field.required ? new FormControl(this.vmCopy[field.key], Validators.required)
         : new FormControl(this.vmCopy[field.key]);
 
-      if (field.type === 'select' || field.type === 'boolean') {
-        group[field.key].reset({ value: this.vmCopy[field.key], disabled });
-        const element = document.getElementById(field.key) as HTMLSelectElement;
-        if (element) { element.disabled = disabled; }
-      }
-
-      if (field.type === 'single-choice') {
-        // console.log('Disabling single-choice');
-        group[field.key].reset({ value: this.vmCopy[field.key], disabled });
-
-        const scElements = document.querySelectorAll('.single-choice');
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < scElements.length; i++) {
-          // console.log(`single-choice element ${i} ${typeof sc_elements[i]}`);
-          const e = scElements[i] as HTMLInputElement;
-          if (e) { e.disabled = disabled; }
-        }
-      }
-
-      if (field.type === 'multi-choice') {
-        // loop through the field.options
-        // create a new FormControl for each option
-        // set the value to true or false if the option value exists in the this.vmCopy[field.key] array
-        // add the FormControl to a FormArray
-        // set the group[field.key] as the FormArray
-        const cbArray: any = {}; // new FormArray([]);
-        field.options.forEach(opt => {
-          cbArray[opt.value] = new FormControl({ value: this.isChecked(this.vmCopy[field.key], opt.value), disabled });
-        });
-        group[field.key] = new FormGroup(cbArray);
-
-        const mcElements = document.querySelectorAll('.multi-choice');
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < mcElements.length; i++) {
-          // console.log(`single-choice element ${i} ${typeof mc_elements[i]}`);
-          const e = mcElements[i] as HTMLInputElement;
-          if (e) {
-            e.checked = false;
-            e.disabled = disabled;
-          }
-        }
-      }
-
       if (field.type === 'date') {
         group[field.key].reset(this.datePipe.transform(this.vmCopy[field.key], 'yyyy-MM-dd'));
       }
