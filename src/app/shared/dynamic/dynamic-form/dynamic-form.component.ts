@@ -51,6 +51,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
         group[field.key].reset({ value: this.vmCopy[field.key], disabled });
 
         const scElements = document.querySelectorAll('.single-choice');
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < scElements.length; i++) {
           // console.log(`single-choice element ${i} ${typeof sc_elements[i]}`);
           const e = scElements[i] as HTMLInputElement;
@@ -65,12 +66,13 @@ export class DynamicFormComponent implements OnChanges, OnInit {
         // add the FormControl to a FormArray
         // set the group[field.key] as the FormArray
         const cbArray: any = {}; // new FormArray([]);
-        field.options!.forEach(opt => {
+        field.options.forEach(opt => {
           cbArray[opt.value] = new FormControl({ value: this.isChecked(this.vmCopy[field.key], opt.value), disabled });
         });
         group[field.key] = new FormGroup(cbArray);
 
         const mcElements = document.querySelectorAll('.multi-choice');
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < mcElements.length; i++) {
           // console.log(`single-choice element ${i} ${typeof mc_elements[i]}`);
           const e = mcElements[i] as HTMLInputElement;
