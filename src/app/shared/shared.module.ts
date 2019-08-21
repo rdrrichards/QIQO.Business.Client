@@ -12,6 +12,7 @@ import { SearchComponent } from './search/search.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DynamicFormComponent } from './dynamic/dynamic-form/dynamic-form.component';
 import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.component';
+import { PrimeNgModule } from './primeng.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.com
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PrimeNgModule
   ],
   exports: [
     AddressComponent,
@@ -42,7 +44,8 @@ import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.com
     SearchComponent,
     NavigationComponent,
     DynamicFormComponent,
-    DynamicFieldComponent
+    DynamicFieldComponent,
+    PrimeNgModule
   ]
 })
 export class SharedModule { }
