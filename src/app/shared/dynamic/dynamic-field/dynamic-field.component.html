@@ -65,7 +65,7 @@
     <div *ngSwitchCase="'multi-choice'" [formGroupName]="field.key" class="form-group">
       <label [htmlFor]="field.key">{{ field.label }}</label>
         <fieldset *ngFor='let opt of field.options'>
-          <p-checkbox [formControlName]="opt.value" [id]="field.key" type="checkbox" [value]="opt.value"
+          <p-checkbox [formControlName]="opt.value" [id]="field.key" [value]="opt.value"
             class="multi-choice" [label]="opt.label"></p-checkbox><br/>
         </fieldset>
     </div>

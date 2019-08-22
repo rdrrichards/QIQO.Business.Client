@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { DynamicFormComponent } from './dynamic-form.component';
 import { DynamicFieldComponent } from '../dynamic-field/dynamic-field.component';
 import { DatePipe } from '@angular/common';
+import { PrimeNgModule } from '../../primeng.module';
 
 describe('DynamicFormComponent', () => {
   let component: DynamicFormComponent;
@@ -13,8 +14,8 @@ describe('DynamicFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DynamicFormComponent, DynamicFieldComponent ],
-      imports: [ReactiveFormsModule, RouterTestingModule],
-      providers: [DatePipe]
+      imports: [ ReactiveFormsModule, RouterTestingModule, PrimeNgModule ],
+      providers: [ DatePipe ]
     })
     .compileComponents();
   }));
@@ -23,7 +24,12 @@ describe('DynamicFormComponent', () => {
     fixture = TestBed.createComponent(DynamicFormComponent);
     component = fixture.componentInstance;
     component.form = new FormGroup({});
+    component.vmDefinition = [];
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create', () => {
