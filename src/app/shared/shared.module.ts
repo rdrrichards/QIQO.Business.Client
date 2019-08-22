@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddressComponent } from './address/address.component';
 import { AttributeComponent } from './attribute/attribute.component';
 import { CommentComponent } from './comment/comment.component';
@@ -9,6 +10,9 @@ import { ListDetailComponent } from './list-detail/list-detail.component';
 import { BusyComponent } from './busy/busy.component';
 import { SearchComponent } from './search/search.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DynamicFormComponent } from './dynamic/dynamic-form/dynamic-form.component';
+import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.component';
+import { PrimeNgModule } from './primeng.module';
 
 @NgModule({
   declarations: [
@@ -20,10 +24,14 @@ import { NavigationComponent } from './navigation/navigation.component';
     ListDetailComponent,
     BusyComponent,
     SearchComponent,
-    NavigationComponent
+    NavigationComponent,
+    DynamicFormComponent,
+    DynamicFieldComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ],
   exports: [
     AddressComponent,
@@ -34,7 +42,10 @@ import { NavigationComponent } from './navigation/navigation.component';
     ListDetailComponent,
     BusyComponent,
     SearchComponent,
-    NavigationComponent
+    NavigationComponent,
+    DynamicFormComponent,
+    DynamicFieldComponent,
+    PrimeNgModule
   ]
 })
 export class SharedModule { }

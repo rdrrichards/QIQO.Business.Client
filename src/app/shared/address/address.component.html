@@ -1,1 +1,10 @@
-<p>address works!</p>
+<h3>Address</h3>
+
+<qiqo-dynamic-form
+  [vm]="address"
+  [vmDefinition]="addressFormDef"
+  [operation]="operation"
+  [errorMessage]="errorMessage"
+  (update)="updateAddress($event)"
+  (create)="createAddress($event)"
+  (changed)="formValueChanged($event)"></qiqo-dynamic-form>
