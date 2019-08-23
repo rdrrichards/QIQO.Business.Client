@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressService } from 'src/app/shared/address.service';
+import { Observable } from 'rxjs';
+import { Address } from 'src/app/models/address';
 
 @Component({
   selector: 'qiqo-account-shell',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-shell.component.css']
 })
 export class AccountShellComponent implements OnInit {
-
-  constructor() { }
+  addresses$: Observable<Address[]>;
+  constructor(private addressService: AddressService) { }
 
   ngOnInit() {
+    this.addresses$ = this.addressService.getAddresses();
   }
 
 }

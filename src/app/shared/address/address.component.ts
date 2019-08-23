@@ -11,9 +11,9 @@ import { FieldDefinition } from '../dynamic/field-definition';
 })
 export class AddressComponent implements OnInit {
   @Input() address: Address;
-  @Input() countries: OptionDefinition[];
-  @Input() addressTypes: OptionDefinition[];
-  @Input() postalCodes: OptionDefinition[];
+  @Input() countries: OptionDefinition[] = [];
+  @Input() addressTypes: OptionDefinition[] = [];
+  @Input() postalCodes: OptionDefinition[] = [];
   @Output() create = new EventEmitter<Address>();
   @Output() update = new EventEmitter<Address>();
 
@@ -29,6 +29,7 @@ export class AddressComponent implements OnInit {
     this.addressOriginal = Object.assign({}, this.address);
     this.formDef = new AddressFormDefinition(this.countries, this.addressTypes, this.postalCodes);
     this.addressFormDef = this.formDef.addressFormDefinition;
+    // this.addressTypes =
   }
   updateAddress(address: Address) {
     this.update.emit(address);

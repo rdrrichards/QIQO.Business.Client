@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Address } from 'src/app/models/address';
 
 @Component({
   selector: 'qiqo-account',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-
+  @Input() addresses: Address[];
   constructor() { }
 
   ngOnInit() {
+    console.log('addresses', this.addresses);
   }
 
 }

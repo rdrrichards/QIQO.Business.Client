@@ -6,6 +6,7 @@ export class AddressFormDefinition {
   countries: OptionDefinition[] = [];
   addressTypes: OptionDefinition[] = [];
   postalCodes: OptionDefinition[] = [];
+  states: OptionDefinition[] = [{ label: 'Tennessee', value: 'TN' }];
 
   addressFormDefinition: FieldDefinition[] = [
     { key: 'addressKey', type: 'number', isId: true, required: true },
@@ -15,8 +16,8 @@ export class AddressFormDefinition {
     { key: 'addressLine3', type: 'string', label: 'Address Line 3' },
     { key: 'addressLine4', type: 'string', label: 'Address Line 4' },
     { key: 'addressCity', type: 'string', label: 'City', required: true },
-    { key: 'addressState', type: 'select', label: 'State', required: true },
-    { key: 'addressCounty', type: 'number', label: 'County' },
+    { key: 'addressState', type: 'select', label: 'State', required: true, options: this.states },
+    { key: 'addressCounty', type: 'string', label: 'County' },
     { key: 'addressCountry', type: 'select', label: 'Country', required: true, options: this.countries },
     { key: 'addressPostalCode', type: 'select', label: 'Postal Code', required: true, options: this.postalCodes },
     { key: 'addressNotes', type: 'string', label: 'Notes' },
