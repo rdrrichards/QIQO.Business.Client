@@ -31,15 +31,15 @@
 
     <div *ngSwitchCase="'select'" class="form-group">
       <label [htmlFor]="field.key">{{ field.label }}</label>
-      <p-dropdown class="form-control" [formControlName]="field.key" [id]="field.key"
-        [options]=[field.options] [readonly]="isReadOnly">
+      <p-dropdown [formControlName]="field.key" [id]="field.key"
+        [options]="field.options" [readonly]="isReadOnly">
       </p-dropdown>
     </div>
 
     <div *ngSwitchCase="'combo'" class="form-group">
       <label [htmlFor]="field.key">{{ field.label }}</label>
-      <p-dropdown class="form-control" [formControlName]="field.key" [id]="field.key"
-        [options]=[field.options] [readonly]="isReadOnly" [editable]="true">
+      <p-dropdown [formControlName]="field.key" [id]="field.key"
+        [options]="field.options" [readonly]="isReadOnly" [editable]="true">
       </p-dropdown>
     </div>
 

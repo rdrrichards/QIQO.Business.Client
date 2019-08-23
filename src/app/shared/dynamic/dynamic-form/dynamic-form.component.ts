@@ -13,7 +13,7 @@ import { FieldDefinition } from '../field-definition';
 export class DynamicFormComponent implements OnChanges, OnInit {
 
   @Input() vm: any;
-  @Input() vmDefinition: Array<FieldDefinition>;
+  @Input() vmDefinition: FieldDefinition[];
   @Input() operation: string;
   @Input() errorMessage: string;
   @Output() update: EventEmitter<any> = new EventEmitter();
@@ -32,7 +32,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
 
   clearForm() {
     const group: any = {};
-    const disabled = !(this.operation === 'edit' || this.operation === 'create');
+    // const disabled = !(this.operation === 'edit' || this.operation === 'create');
     this.vmCopy = Object.assign({}, this.vm);
     this.vmDefinition.forEach(field => {
       // console.log('field:', field);
