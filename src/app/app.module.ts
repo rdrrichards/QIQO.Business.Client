@@ -44,7 +44,7 @@ import { DatePipe } from '@angular/common';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
     DatePipe
   ],
   bootstrap: [AppComponent]

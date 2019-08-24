@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  accountsUrl: 'api/accounts',
   addressesUrl: 'api/addresses'
 };
 

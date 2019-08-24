@@ -18,8 +18,7 @@
     <div *ngSwitchCase="'date'" class="form-group">
       <label [htmlFor]="field.key">{{ field.label }}</label>
       <p-calendar class="form-control" [formControlName]="field.key" [id]="field.key"
-              [readonlyInput]="isReadOnly"
-              type="date"></p-calendar>
+              [readonlyInput]="isReadOnly" dateFormat="yy-mm-dd"></p-calendar>
     </div>
 
     <div *ngSwitchCase="'email'" class="form-group">

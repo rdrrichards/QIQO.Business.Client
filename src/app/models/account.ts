@@ -11,17 +11,17 @@ export interface Account {
   accountCode: string;
   accountName: string;
   accountDesc: string;
-  accountDBA: string;
+  accountDBA?: string;
   accountStartDate: Date;
-  accountEndDate: Date;
+  accountEndDate?: Date;
   addresses: Address[];
   accountAttributes: EntityAttribute[];
   feeSchedules?: FeeSchedule[];
   employees?: any[]; // = new List<AccountPerson>();
-  contacts: Contact[];
+  contacts?: Contact[];
   comments?: Comment[];
   addedUserID: string;
   addedDateTime: Date;
-  updateUserID: string;
-  updateDateTime: Date;
+  updateUserID?: string;
+  updateDateTime?: Date;
 }

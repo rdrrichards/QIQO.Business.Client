@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressService } from 'src/app/shared/address.service';
 import { Observable } from 'rxjs';
-import { Address } from 'src/app/models/address';
+import { AccountService } from 'src/app/shared/account.service';
+import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'qiqo-account-shell',
@@ -9,11 +9,14 @@ import { Address } from 'src/app/models/address';
   styleUrls: ['./account-shell.component.css']
 })
 export class AccountShellComponent implements OnInit {
-  addresses$: Observable<Address[]>;
-  constructor(private addressService: AddressService) { }
+  account$: Observable<Account>;
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
-    this.addresses$ = this.addressService.getAddresses();
+    // this.accountService.getAccount(1).subscribe(account => {
+    //   console.log('AccountShellComponent account', account);
+    // });
+    this.account$ = this.accountService.getAccount(1);
   }
 
 }
