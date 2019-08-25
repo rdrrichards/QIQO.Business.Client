@@ -13,7 +13,7 @@ import { FieldDefinition } from '../field-definition';
 export class DynamicFormComponent implements OnChanges, OnInit {
 
   @Input() vm: any;
-  @Input() vmDefinition: Array<FieldDefinition>;
+  @Input() vmDefinition: FieldDefinition[];
   @Input() operation: string;
   @Input() errorMessage: string;
   @Output() update: EventEmitter<any> = new EventEmitter();
@@ -32,8 +32,9 @@ export class DynamicFormComponent implements OnChanges, OnInit {
 
   clearForm() {
     const group: any = {};
-    const disabled = !(this.operation === 'edit' || this.operation === 'create');
+    // const disabled = !(this.operation === 'edit' || this.operation === 'create');
     this.vmCopy = Object.assign({}, this.vm);
+    // console.log('this.vmCopy', this.vmCopy, 'this.vm', this.vm);
     this.vmDefinition.forEach(field => {
       // console.log('field:', field);
       // console.log('this.vmCopy[field.key]:', this.vmCopy[field.key]);
@@ -53,7 +54,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.errorMessage.currentValue && this.status === 'waiting') {
+    if (changes.errorMessage && changes.errorMessage.currentValue &&
+        this.status === 'waiting') {
       this.status = '';
     }
   }
@@ -100,13 +102,13 @@ export class DynamicFormComponent implements OnChanges, OnInit {
     this.changed.emit(arg);
   }
 
-  private isChecked(options: string[], value: string): boolean {
-    if (Array.isArray(options)) {
-      const f = options.find(v => v === value);
-      // console.log(`isChecked: f: ${f}; option; ${options}; value: ${value}`);
-      if (f) { return true; } else { return false; }
-    } else {
-      return false;
-    }
-  }
+  // private isChecked(options: string[], value: string): boolean {
+  //   if (Array.isArray(options)) {
+  //     const f = options.find(v => v === value);
+  //     // console.log(`isChecked: f: ${f}; option; ${options}; value: ${value}`);
+  //     if (f) { return true; } else { return false; }
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/in-memory-data.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -13,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './state/app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,10 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     CoreModule,
     SharedModule,
     AppRoutingModule,
@@ -35,7 +44,8 @@ import { environment } from '../environments/environment';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandler }
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

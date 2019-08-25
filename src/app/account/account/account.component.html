@@ -1,1 +1,17 @@
-<p>account works!</p>
+<h3>Account</h3>
+
+<div *ngIf="account">
+  <qiqo-dynamic-form id="accountForm"
+    [vm]="account"
+    [vmDefinition]="accountFormDef"
+    [operation]="operation"
+    [errorMessage]="errorMessage"
+    (update)="updateAccount($event)"
+    (create)="createAccount($event)"
+    (changed)="formValueChanged($event)"></qiqo-dynamic-form>
+
+  <div *ngFor="let address of account.addresses">
+    <qiqo-address [address]="address"></qiqo-address>
+  </div>
+  <pre>{{ account | json }}</pre>
+</div>
