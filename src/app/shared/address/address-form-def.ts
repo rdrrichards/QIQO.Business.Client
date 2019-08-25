@@ -4,7 +4,8 @@ import { OptionDefinition } from '../dynamic/option-defninition';
 export class AddressFormDefinition {
 
   countries: OptionDefinition[] = [{ label: 'USA', value: 'USA' }];
-  addressTypes: OptionDefinition[] = [{ label: 'Mail', value: '1' }];
+  addressTypes: OptionDefinition[] = [{ label: 'Mailing', value: '1' },
+      { label: 'Shipping', value: '2' }, { label: 'Billing', value: '3' }];
   postalCodes: OptionDefinition[] = [{ label: '37211', value: '37211' }];
   states: OptionDefinition[] = [{ label: 'Tennessee', value: 'TN' }];
 

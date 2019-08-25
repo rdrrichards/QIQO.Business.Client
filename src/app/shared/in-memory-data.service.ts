@@ -13,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
     const addresses: Address[] = [
       {
         addressKey: 1,
-        addressType: AddressType.Mailing,
+        addressType: AddressType.Billing,
         entityKey: 1,
         entityType: EntityType.Account,
         addressLine1: '555 Main',

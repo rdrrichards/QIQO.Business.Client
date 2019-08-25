@@ -2,7 +2,7 @@
 
 <div *ngIf="account">
   <qiqo-dynamic-form id="accountForm"
-    [vm]="account[0]"
+    [vm]="account"
     [vmDefinition]="accountFormDef"
     [operation]="operation"
     [errorMessage]="errorMessage"
@@ -13,5 +13,5 @@
   <div *ngFor="let address of account.addresses">
     <qiqo-address [address]="address"></qiqo-address>
   </div>
-  <pre>{{ account[0] | json }}</pre>
+  <pre>{{ account | json }}</pre>
 </div>

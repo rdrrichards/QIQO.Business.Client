@@ -25,16 +25,16 @@ export enum EntityNumberType {
 
 export enum AccountType {
     // Unknown = 0,
-    TestAccount = 1,
-    Business = 2,
-    Individual = 3
+    TestAccount = '1',
+    Business = '2',
+    Individual = '3'
 }
 
 export enum AddressType {
     // Unknown = 0,
-    Mailing = 1,
-    Shipping = 2,
-    Billing = 3
+    Mailing = '1',
+    Shipping = '2',
+    Billing = '3'
 }
 
 export enum AttributeType {

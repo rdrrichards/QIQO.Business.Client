@@ -3,7 +3,7 @@ import { OptionDefinition } from 'src/app/shared/dynamic/option-defninition';
 
 export class AccountFormDefinition {
 
-  accountTypes: OptionDefinition[] = [{ label: 'Individual', value: '3' }];
+  accountTypes: OptionDefinition[] = [{ label: 'Business', value: '2' }, { label: 'Individual', value: '3' }];
 
   accountFormDefinition: FieldDefinition[] = [
     { key: 'accountKey', type: 'number', isId: true, required: true },
