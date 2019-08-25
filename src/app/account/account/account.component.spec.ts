@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AccountComponent } from './account.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -8,7 +10,8 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountComponent ]
+      declarations: [ AccountComponent ],
+      imports: [ReactiveFormsModule, SharedModule]
     })
     .compileComponents();
   }));
