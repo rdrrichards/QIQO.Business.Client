@@ -12,4 +12,4 @@ export const fetchUserFail = createAction(
 const actions = union({
   fetchUser, fetchUserSuccess, fetchUserFail,
 });
-export type AdminActionsUnion = typeof actions;
+export type AppActionsUnion = typeof actions;
