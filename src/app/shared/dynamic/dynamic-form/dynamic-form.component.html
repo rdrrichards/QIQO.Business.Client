@@ -1,11 +1,8 @@
-<div>
-  <form [formGroup]="form">
+<form [formGroup]="form">
+  <div>
 
     <div *ngFor="let field of vmDefinition">
-      <qiqo-dynamic-field [field]="field"
-                        [form]="form"
-                        [operation]="operation"
-                        [submitted]="submitted">
+      <qiqo-dynamic-field [field]="field" [form]="form" [operation]="operation" [submitted]="submitted">
       </qiqo-dynamic-field>
     </div>
 
@@ -15,16 +12,16 @@
 
     <div *ngIf="status != 'waiting'">
       <div *ngIf="operation === 'details'">
-        <button type="button" class="btn" (click)="onBack()" >Back</button>
-        <button type="button" class="btn btn-primary" (click)="onEdit()" >Edit</button>
+        <button type="button" class="btn" (click)="onBack()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
       </div>
       <div *ngIf="operation === 'edit'">
-        <button type="button" class="btn" (click)="onCancel()" >Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="onSave()" >Save</button>
+        <button type="button" class="btn" (click)="onCancel()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
       </div>
       <div *ngIf="operation === 'create'">
-        <button type="button" class="btn" (click)="onBack()" >Back</button>
-        <button type="button" class="btn btn-primary" (click)="onCreate()" >Create</button>
+        <button type="button" class="btn" (click)="onBack()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="onCreate()">Create</button>
       </div>
     </div>
 
@@ -32,5 +29,5 @@
       Waiting...
     </div>
 
-  </form>
-</div>
+  </div>
+</form>

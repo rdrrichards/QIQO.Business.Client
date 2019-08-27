@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { GlobalErrorHandler } from './core/global-error-handler';
 import { StoreModule } from '@ngrx/store';
 // import { reducers, metaReducers } from './state';
+import * as fromAppReducer from './state/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './state/app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -33,8 +34,8 @@ import { DatePipe } from '@angular/common';
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {
-      // metaReducers,
+    StoreModule.forRoot(fromAppReducer.appReducer, {
+      // appRedcuer,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true

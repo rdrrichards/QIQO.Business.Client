@@ -1,19 +1,20 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import * as fromReducer from './app.reducer';
+// import {
+//   ActionReducer,
+//   ActionReducerMap,
+//   createFeatureSelector,
+//   createSelector,
+//   MetaReducer
+// } from '@ngrx/store';
+// import { environment } from '../../environments/environment';
+// import * as fromReducer from './app.reducer';
+import { User } from '../models/user';
 
 export interface AppState {
-  empty: string;
+  user: User;
 }
 
 // export const reducers: ActionReducerMap<AppState> = {
-//   noidea: fromReducer.appReducer;
+//   appReducer: fromReducer.appReducer
 // };
 
 // export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
