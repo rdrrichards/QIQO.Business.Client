@@ -34,7 +34,7 @@ import { DatePipe } from '@angular/common';
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot({ app: fromAppReducer.appReducer }, {
+    StoreModule.forRoot({ app: fromAppReducer.reducer }, {
       // appRedcuer,
       runtimeChecks: {
         strictStateImmutability: true,
