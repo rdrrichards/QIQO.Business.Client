@@ -1,16 +1,13 @@
 import { AppState } from '.';
 import * as appActions from './app.actions';
+import { createReducer, on } from '@ngrx/store';
 
 export const initialState: AppState = {
   user: { name: 'Richard Richards', roles: [] }
 };
 
-export function appReducer(state = initialState, action: appActions.AppActionsUnion): AppState {
-  switch (action.type) {
-    case appActions.fetchUser.type:
-      console.log('did it happen?');
-      return { ...state };
-    default:
-      return state;
-  }
-}
+export const appReducer = createReducer(initialState,
+  on(appActions.fetchUser, state => { console.log('fetchUser'); return state; }),
+  on(appActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
+  on(appActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+);
