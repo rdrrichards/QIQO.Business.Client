@@ -7,6 +7,10 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductShellComponent } from './product-shell/product-shell.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
+import * as fromProductState from './state/product.reducer';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './state/product.effects';
 
 
 @NgModule({
@@ -14,7 +18,9 @@ import { ProductSearchComponent } from './product-search/product-search.componen
   imports: [
     CommonModule,
     SharedModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    StoreModule.forFeature('productState', fromProductState.reducer),
+    EffectsModule.forRoot([ProductEffects]),
   ]
 })
 export class ProductModule { }

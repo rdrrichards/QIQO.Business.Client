@@ -7,6 +7,10 @@ import { SharedModule } from '../shared/shared.module';
 import { AccountShellComponent } from './account-shell/account-shell.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountSearchComponent } from './account-search/account-search.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AccountEffects } from './state/account.effects';
+import * as fromAccountState from './state/account.reducer';
 
 
 @NgModule({
@@ -14,7 +18,9 @@ import { AccountSearchComponent } from './account-search/account-search.componen
   imports: [
     CommonModule,
     SharedModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    StoreModule.forFeature('accountState', fromAccountState.reducer),
+    EffectsModule.forRoot([AccountEffects]),
   ]
 })
 export class AccountModule { }

@@ -7,6 +7,10 @@ import { SharedModule } from '../shared/shared.module';
 import { OrderShellComponent } from './order-shell/order-shell.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
+import * as fromOrderState from './state/order.reducer';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { OrderEffects } from './state/order.effects';
 
 
 @NgModule({
@@ -14,7 +18,9 @@ import { OrderSearchComponent } from './order-search/order-search.component';
   imports: [
     CommonModule,
     SharedModule,
-    OrderRoutingModule
+    OrderRoutingModule,
+    StoreModule.forFeature('orderState', fromOrderState.reducer),
+    EffectsModule.forRoot([OrderEffects]),
   ]
 })
 export class OrderModule { }
