@@ -7,9 +7,9 @@ export const initialState: OrderState = {
 };
 
 const orderReducer = createReducer(initialState,
-  on(orderActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(orderActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
-  on(orderActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+  on(orderActions.fetchOrder, state => { console.log('fetchOrder'); return state; }),
+  on(orderActions.fetchOrderSuccess, state => { console.log('fetchOrderSuccess'); return state; }),
+  on(orderActions.fetchOrderFail, state => { console.log('fetchOrderFail'); return state; }),
 );
 
 export function reducer(state: OrderState | undefined, action: Action) {

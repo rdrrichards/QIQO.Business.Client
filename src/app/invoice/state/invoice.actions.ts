@@ -1,14 +1,14 @@
 import { createAction, props, union } from '@ngrx/store';
 
-export const fetchUser = createAction('[Invoice] Fetch User');
-export const fetchUserSuccess = createAction(
-  '[Invoice] Fetch User Success', props<{}>()
+export const fetchInvoice = createAction('[Invoice] Fetch Invoice');
+export const fetchInvoiceSuccess = createAction(
+  '[Invoice] Fetch Invoice Success', props<{}>()
 );
-export const fetchUserFail = createAction(
-  '[Invoice] Fetch User Fail', props<{ message: string }>()
+export const fetchInvoiceFail = createAction(
+  '[Invoice] Fetch Invoice Fail', props<{ message: string }>()
 );
 
 const actions = union({
-  fetchUser, fetchUserSuccess, fetchUserFail,
+  fetchInvoice, fetchInvoiceSuccess, fetchInvoiceFail,
 });
 export type InvoiceActionsUnion = typeof actions;

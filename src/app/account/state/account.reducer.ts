@@ -7,9 +7,9 @@ export const initialState: AccountState = {
 };
 
 const accountReducer = createReducer(initialState,
-  on(accountActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(accountActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
-  on(accountActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+  on(accountActions.fetchAccount, state => { console.log('fetchAccount'); return state; }),
+  on(accountActions.fetchAccountSuccess, state => { console.log('fetchAccountSuccess'); return state; }),
+  on(accountActions.fetchAccountFail, state => { console.log('fetchAccountFail'); return state; }),
 );
 
 export function reducer(state: AccountState | undefined, action: Action) {

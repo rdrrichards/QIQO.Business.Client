@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { AuthenticationService } from '../../shared/authentication.service';
 import * as companyActions from './company.actions';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
+import { CompanyService } from 'src/app/shared/company.service';
 
 @Injectable()
 export class CompanyEffects {
-  constructor(private actions$: Actions, private authenticationService: AuthenticationService) {}
+  constructor(private actions$: Actions, private companyService: CompanyService) {}
 
-  loadUser$ = createEffect(() => this.actions$.pipe(
-    ofType(companyActions.fetchUser),
-    mergeMap(() => this.authenticationService.getUser('').pipe(
-        map(user => (companyActions.fetchUserSuccess(user)),
-        catchError(err => of(companyActions.fetchUserFail(err.message)))
+  loadCompany$ = createEffect(() => this.actions$.pipe(
+    ofType(companyActions.fetchCompany),
+    mergeMap(() => this.companyService.getCompany('').pipe(
+        map(user => (companyActions.fetchCompanySuccess(user)),
+        catchError(err => of(companyActions.fetchCompanyFail(err.message)))
         )
       ))
   ));

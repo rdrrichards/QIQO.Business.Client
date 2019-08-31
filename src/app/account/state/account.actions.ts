@@ -1,14 +1,14 @@
 import { createAction, props, union } from '@ngrx/store';
 
-export const fetchUser = createAction('[Account] Fetch User');
-export const fetchUserSuccess = createAction(
-  '[Account] Fetch User Success', props<{}>()
+export const fetchAccount = createAction('[Account] Fetch Account');
+export const fetchAccountSuccess = createAction(
+  '[Account] Fetch Account Success', props<{}>()
 );
-export const fetchUserFail = createAction(
-  '[Account] Fetch User Fail', props<{ message: string }>()
+export const fetchAccountFail = createAction(
+  '[Account] Fetch Account Fail', props<{ message: string }>()
 );
 
 const actions = union({
-  fetchUser, fetchUserSuccess, fetchUserFail,
+  fetchAccount, fetchAccountSuccess, fetchAccountFail,
 });
 export type AccountActionsUnion = typeof actions;

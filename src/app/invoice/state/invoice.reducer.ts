@@ -7,9 +7,9 @@ export const initialState: InvoiceState = {
 };
 
 const invoiceReducer = createReducer(initialState,
-  on(invoiceActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(invoiceActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
-  on(invoiceActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+  on(invoiceActions.fetchInvoice, state => { console.log('fetchInvoice'); return state; }),
+  on(invoiceActions.fetchInvoiceSuccess, state => { console.log('fetchInvoiceSuccess'); return state; }),
+  on(invoiceActions.fetchInvoiceFail, state => { console.log('fetchInvoiceFail'); return state; }),
 );
 
 export function reducer(state: InvoiceState | undefined, action: Action) {

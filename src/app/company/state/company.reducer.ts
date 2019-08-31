@@ -7,9 +7,9 @@ export const initialState: CompanyState = {
 };
 
 const companyReducer = createReducer(initialState,
-  on(companyActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(companyActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
-  on(companyActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+  on(companyActions.fetchCompany, state => { console.log('fetchCompany'); return state; }),
+  on(companyActions.fetchCompanySuccess, state => { console.log('fetchCompanySuccess'); return state; }),
+  on(companyActions.fetchCompanyFail, state => { console.log('fetchCompanyFail'); return state; }),
 );
 
 export function reducer(state: CompanyState | undefined, action: Action) {
