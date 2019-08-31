@@ -1,15 +1,17 @@
 import { AppState } from '.';
-import { CounterActionsUnion, CounterActionTypes } from './app.actions';
+import * as appActions from './app.actions';
+import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: AppState = {
-  empty: ''
+  user: { name: 'Richard Richards', roles: [] }
 };
 
-export function appReducer(state = initialState, action: CounterActionsUnion): AppState {
-  switch (action.type) {
-    case CounterActionTypes.INCREMENT:
-      return { ...state };
-    default:
-      return state;
-  }
+const appReducer = createReducer(initialState,
+  on(appActions.fetchUser, state => { console.log('fetchUser'); return state; }),
+  on(appActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
+  on(appActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+);
+
+export function reducer(state: AppState | undefined, action: Action) {
+  return appReducer(state, action);
 }

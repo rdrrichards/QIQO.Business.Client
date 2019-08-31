@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './state';
+import * as appActions from './state/app.actions';
 
 @Component({
   selector: 'qiqo-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'QIQO Business Client';
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(appActions.fetchUser());
+  }
 }

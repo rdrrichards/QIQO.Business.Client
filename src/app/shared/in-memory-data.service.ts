@@ -3,6 +3,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { AddressType, EntityType, AccountType } from '../models/enums';
 import { Address } from '../models/address';
 import { Account } from '../models/account';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,7 @@ export class InMemoryDataService implements InMemoryDbService {
         addedDateTime: new Date('2018-08-22')
       }
     ];
-    return { addresses, accounts };
+    const users: User[] = [{ name: 'Richard Richards', roles: [] }];
+    return { addresses, accounts, users };
   }
 }

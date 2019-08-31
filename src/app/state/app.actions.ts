@@ -1,23 +1,15 @@
-import { Action } from '@ngrx/store';
+import { createAction, props, union } from '@ngrx/store';
+import { User } from '../models/user';
 
-export enum CounterActionTypes {
-  INCREMENT = '[Counter] Increment',
-  DECREMENT = '[Counter] Decrement',
-  RESET = '[Counter] Reset',
-}
+export const fetchUser = createAction('[Application] Fetch User');
+export const fetchUserSuccess = createAction(
+  '[Application] Fetch User Success', props<User>()
+);
+export const fetchUserFail = createAction(
+  '[Application] Fetch User Fail', props<{ message: string }>()
+);
 
-export class Increment implements Action {
-  readonly type = CounterActionTypes.INCREMENT;
-}
-
-export class Decrement implements Action {
-  readonly type = CounterActionTypes.DECREMENT;
-}
-
-export class Reset implements Action {
-  readonly type = CounterActionTypes.RESET;
-
-  constructor(public payload: number) {}
-}
-
-export type CounterActionsUnion = Increment | Decrement | Reset;
+const actions = union({
+  fetchUser, fetchUserSuccess, fetchUserFail,
+});
+export type AppActionsUnion = typeof actions;
