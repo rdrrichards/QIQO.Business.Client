@@ -1,0 +1,34 @@
+<ng-template ngFor let-child let-i="index" [ngForOf]="(root ? item : item.items)">
+  <li [ngClass]="{'layout-root-menuitem':root ,'active-menuitem': isActive(i)}" [class]="child.badgeStyleClass"
+      *ngIf="child.visible === false ? false : true">
+      <div *ngIf="root">
+          <span class="layout-menuitem-text">{{child.label}}</span>
+      </div>
+      <a [href]="child.url||'#'" (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)"
+         *ngIf="!child.routerLink" [class]="child.styleClass"
+         [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
+          <i class="layout-menuitem-icon" [ngClass]="child.icon"></i>
+          <span class="layout-menuitem-text">{{child.label}}</span>
+          <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="child.items"></i>
+          <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+      </a>
+
+      <a (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)" *ngIf="child.routerLink"
+         [routerLink]="child.routerLink" routerLinkActive="active-route" [fragment]="child.fragment"
+         [routerLinkActiveOptions]="{exact: true}" [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
+          <i class="layout-menuitem-icon" [ngClass]="child.icon"></i>
+          <span class="layout-menuitem-text">{{child.label}}</span>
+          <i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="child.items"></i>
+          <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+      </a>
+      <div class="layout-menu-tooltip">
+          <div class="layout-menu-tooltip-arrow"></div>
+          <div class="layout-menu-tooltip-text">{{child.label}}</div>
+      </div>
+      <ul qiqo-sub-menu [item]="child" *ngIf="child.items" [visible]="isActive(i)"
+          [reset]="reset" [parentActive]="isActive(i)"
+          [@children]="(app.isSlim()||app.isHorizontal())&&!app.isMobile()&&root ? isActive(i) ?
+          'visible' : 'hidden' : isActive(i) ? 'visibleAnimated' :
+          app.grouped===true && root? 'visibleAnimated': 'hiddenAnimated'"></ul>
+  </li>
+</ng-template>

@@ -7,6 +7,7 @@ import { ColorPickerModule } from 'primeng/colorpicker';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     DropdownModule,
     InputTextModule,
     InputSwitchModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ScrollPanelModule
   ],
   exports: [
     CalendarModule,
@@ -25,7 +27,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     DropdownModule,
     InputTextModule,
     InputSwitchModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ScrollPanelModule
   ]
 })
 export class PrimeNgModule { }
