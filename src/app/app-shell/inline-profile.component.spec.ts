@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InlineProfileComponent } from './inline-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('InlineProfileComponent', () => {
   let component: InlineProfileComponent;
@@ -8,7 +9,8 @@ describe('InlineProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InlineProfileComponent ]
+      declarations: [ InlineProfileComponent ],
+      imports: [ BrowserAnimationsModule ]
     })
     .compileComponents();
   }));
