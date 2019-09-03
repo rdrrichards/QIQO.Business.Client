@@ -9,7 +9,6 @@ import * as appActions from './state/app.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'QIQO Business Client';
   constructor(private store: Store<AppState>) {
     this.store.dispatch(appActions.fetchUser());
   }

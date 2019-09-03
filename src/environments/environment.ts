@@ -5,6 +5,10 @@
 export const environment = {
   production: false,
   accountsUrl: 'api/accounts',
+  companiesUrl: 'api/companies',
+  invoicesUrl: 'api/invoices',
+  ordersUrl: 'api/orders',
+  productsUrl: 'api/products',
   addressesUrl: 'api/addresses',
   usersUrl: 'api/users'
 };
