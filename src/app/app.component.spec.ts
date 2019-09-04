@@ -11,6 +11,7 @@ import { BreadcrumbComponent } from './app-shell/breadcrumb.component';
 import { MenuComponent } from './app-shell/menu.component';
 import { SharedModule } from './shared/shared.module';
 import { SubMenuComponent } from './app-shell/sub-menu.component';
+import { LoginComponent } from './login/login.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -24,7 +25,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent, AppShellComponent, TopbarComponent, FooterComponent,
         InlineProfileComponent, BreadcrumbComponent, MenuComponent, TopbarComponent,
-        SubMenuComponent
+        SubMenuComponent, LoginComponent
       ],
     }).compileComponents();
   }));

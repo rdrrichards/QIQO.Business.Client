@@ -9,6 +9,7 @@ import * as appActions from './state/app.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  display = false;
   constructor(private store: Store<AppState>) {
     this.store.dispatch(appActions.fetchUser());
   }
