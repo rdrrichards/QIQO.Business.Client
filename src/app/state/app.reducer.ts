@@ -7,7 +7,7 @@ export const initialState: AppState = {
 };
 
 export const selectUser = (state: AppState) => state.user;
-export const selectLoggedIn = (state: AppState) => state.user.name ? false : true;
+export const selectLoggedIn = (state: AppState) => (state.user && state.user.name) ? true : false;
 
 const appReducer = createReducer(initialState,
   on(appActions.fetchUser, state => { console.log('fetchUser'); return state; }),
