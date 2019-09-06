@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'qiqo-dashboard-item',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-item.component.css']
 })
 export class DashboardItemComponent implements OnInit {
-
+  @Input() type: string;
+  @Input() primary: string;
+  @Input() secondary: string;
   constructor() { }
 
   ngOnInit() {
