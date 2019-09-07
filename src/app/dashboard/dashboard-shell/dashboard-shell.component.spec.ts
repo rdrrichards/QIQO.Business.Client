@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DashboardShellComponent } from './dashboard-shell.component';
+import { DashboardItemComponent } from '../dashboard-item/dashboard-item.component';
 
 describe('DashboardShellComponent', () => {
   let component: DashboardShellComponent;
@@ -8,7 +10,8 @@ describe('DashboardShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardShellComponent ]
+      declarations: [ DashboardShellComponent, DashboardItemComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   }));

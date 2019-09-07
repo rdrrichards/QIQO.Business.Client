@@ -15,6 +15,9 @@ export class DashboardItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.primaryIcon === 'dollar') {
+      this.primary = `$ ${this.primary}`;
+    }
   }
 
 }
