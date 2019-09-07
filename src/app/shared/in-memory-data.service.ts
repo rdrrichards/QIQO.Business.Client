@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { AddressType, EntityType, AccountType } from '../models/enums';
-import { Address } from '../models/address';
-import { Account } from '../models/account';
-import { User } from '../models/user';
+import { Address, Account, User, DashboardItem } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +44,13 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
     const users: User[] = [{ name: 'Richard Richards', roles: [] }];
-    return { addresses, accounts, users };
+    const dashboardItems: DashboardItem[] = [
+      { title: 'Sales', class: 'sales', primary: '$ 92,440', secondary: '21% more than yesterday', primaryIcon: 'dollar', secondaryIcon: 'chevron-circle-up' },
+      { title: 'Views', class: 'views', primary: '7029', secondary: '2% more than yesterday', primaryIcon: 'search', secondaryIcon: 'chevron-circle-up' },
+      { title: 'Users', class: 'users', primary: '9522', secondary: '5% more than yesterday', primaryIcon: 'users', secondaryIcon: 'chevron-circle-up' },
+      { title: 'Check-Ins', class: 'checkin', primary: '4211', secondary: '18% more than yesterday',
+      primaryIcon: 'map-marker', secondaryIcon: 'chevron-circle-up' }
+    ];
+    return { addresses, accounts, users, dashboardItems };
   }
 }

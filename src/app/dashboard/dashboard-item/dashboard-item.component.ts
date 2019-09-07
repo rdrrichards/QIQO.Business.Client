@@ -6,9 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dashboard-item.component.css']
 })
 export class DashboardItemComponent implements OnInit {
-  @Input() type: string;
+  @Input() title: string;
+  @Input() class: string;
   @Input() primary: string;
   @Input() secondary: string;
+  @Input() primaryIcon: string;
+  @Input() secondaryIcon: string;
   constructor() { }
 
   ngOnInit() {

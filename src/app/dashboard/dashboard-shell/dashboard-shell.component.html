@@ -1,13 +1,9 @@
 <div class="layout-dashboard">
   <div class="p-grid">
-    <div class="p-col-12 p-lg-6 p-xl-3">
-      <qiqo-dashboard-item type="sales" primary="$ 92,440" secondary="21% more than yesterday"></qiqo-dashboard-item>
-    </div>
-    <div class="p-col-12 p-lg-6 p-xl-3">
-      <qiqo-dashboard-item type="views" primary="7029" secondary="2% more than yesterday"></qiqo-dashboard-item>
-    </div>
-    <div class="p-col-12 p-lg-6 p-xl-3">
-      <qiqo-dashboard-item type="users" primary="9522" secondary="5% more than yesterday"></qiqo-dashboard-item>
+    <div class="p-col-12 p-lg-6 p-xl-3" *ngFor="let item of dashboardItems$ | async">
+      <qiqo-dashboard-item [title]="item.title" [class]="item.class"
+        [primary]="item.primary" [secondary]="item.secondary"
+        [primaryIcon]="item.primaryIcon" [secondaryIcon]="item.secondaryIcon"></qiqo-dashboard-item>
     </div>
   </div>
 </div>
