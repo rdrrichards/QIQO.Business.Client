@@ -3,7 +3,7 @@ import * as appActions from './app.actions';
 import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: AppState = {
-  user: { name: 'Richard Richards', roles: [] }
+  user: null // { name: null, roles: [] }
 };
 
 export const selectUser = (state: AppState) => state.user;
@@ -11,7 +11,7 @@ export const selectLoggedIn = (state: AppState) => (state.user && state.user.nam
 
 const appReducer = createReducer(initialState,
   on(appActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(appActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
+  on(appActions.fetchUserSuccess, (state, userInfo) => ({ ...state, user: userInfo })),
   on(appActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
 );
 

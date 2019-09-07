@@ -11,7 +11,7 @@ export class AppEffects {
 
   loadUser$ = createEffect(() => this.actions$.pipe(
     ofType(appActions.fetchUser),
-    mergeMap(() => this.authenticationService.getUser('').pipe(
+    mergeMap(() => this.authenticationService.getUser('Richard Richards').pipe(
         map(user => (appActions.fetchUserSuccess(user)),
         catchError(err => of(appActions.fetchUserFail(err.message)))
         )

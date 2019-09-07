@@ -12,6 +12,7 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient) { }
   getUser(userName: string): Observable<User> {
+    console.log('getUser', userName);
     return this.httpClient.get<User>(`${environment.usersUrl}?name=${userName}`).pipe(map(users => users[0]));
   }
 }
