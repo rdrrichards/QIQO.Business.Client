@@ -1,6 +1,6 @@
 <qiqo-app-shell></qiqo-app-shell>
 
-<p-dialog header="LOGIN" [visible]="(loggedIn$ | async)" [closeOnEscape]="false" [draggable]="false"
+<p-dialog header="LOGIN" [visible]="!(loggedIn$ | async)" [closeOnEscape]="false" [draggable]="false"
     [resizable]="false" [modal]="true" [closable]="false">
   <qiqo-login></qiqo-login>
 </p-dialog>

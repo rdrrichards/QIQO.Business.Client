@@ -9,9 +9,11 @@ import * as appActions from '../state/app.actions';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userName: string;
+  password: string;
   constructor(private store: Store<AppState>) { }
   ngOnInit() {}
   login() {
-    this.store.dispatch(appActions.fetchUser());
+    this.store.dispatch(appActions.fetchUser({ userName: this.userName, password: this.password }));
   }
 }

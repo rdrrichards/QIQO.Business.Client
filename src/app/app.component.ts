@@ -14,7 +14,7 @@ import { User } from './models/user';
 export class AppComponent {
   loggedIn$: Observable<boolean>;
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(appActions.fetchUser());
+    // this.store.dispatch(appActions.fetchUser());
     this.loggedIn$ = this.store.pipe(select(appReducer.selectLoggedIn));
   }
 }
