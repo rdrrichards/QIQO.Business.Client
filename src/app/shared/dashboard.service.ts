@@ -9,12 +9,10 @@ import { DashboardItem } from '../models';
 })
 export class DashboardService {
   constructor(private httpClient: HttpClient) { }
-  getDashboardItems(): Observable<DashboardItem[]> {
-    console.log('DashboardService.getDashboardItems');
-    return this.httpClient.get<DashboardItem[]>(environment.dashboardsUrl);
+  getDashboardOverviews(): Observable<DashboardItem[]> {
+    return this.httpClient.get<DashboardItem[]>(`${environment.dashboardsUrl}?type=overview`);
   }
-  // getAccount(accountKey: number): Observable<Account> {
-  //   console.log('AccountService.getAccount', `${environment.accountsUrl}?accountKey=${accountKey}`);
-  //   return this.httpClient.get<Account>(`${environment.accountsUrl}?accountKey=${accountKey}`).pipe(map(account => account[0]));
-  // }
+  getDashboardTables(): Observable<DashboardItem[]> {
+    return this.httpClient.get<DashboardItem[]>(`${environment.dashboardsUrl}?type=table`);
+  }
 }

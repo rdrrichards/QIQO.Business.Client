@@ -11,6 +11,7 @@ import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
 })
 export class DashboardShellComponent implements OnInit {
   dashboardItems$: Observable<DashboardItem[]>;
+  dashboardTables$: Observable<DashboardItem[]>;
   constructor(private breadcrumbService: BreadcrumbService, private dashboardService: DashboardService) {
     this.breadcrumbService.setItems([
       {label: 'Dashboard'}
@@ -18,7 +19,8 @@ export class DashboardShellComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dashboardItems$ = this.dashboardService.getDashboardItems();
+    this.dashboardItems$ = this.dashboardService.getDashboardOverviews();
+    this.dashboardTables$ = this.dashboardService.getDashboardTables();
   }
 
 }

@@ -10,10 +10,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffects } from './state/dashboard.effects';
 import { DashboardShellComponent } from './dashboard-shell/dashboard-shell.component';
 import { DashboardItemComponent } from './dashboard-item/dashboard-item.component';
+import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
 
 
 @NgModule({
-  declarations: [DashboardShellComponent, DashboardItemComponent],
+  declarations: [DashboardShellComponent, DashboardItemComponent, DashboardTableComponent],
   imports: [
     CommonModule,
     SharedModule,
