@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardItemComponent } from './dashboard-item.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardTableComponent } from '../dashboard-table/dashboard-table.component';
 
 describe('DashboardItemComponent', () => {
   let component: DashboardItemComponent;
@@ -8,7 +10,8 @@ describe('DashboardItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardItemComponent ]
+      declarations: [ DashboardItemComponent, DashboardTableComponent ],
+      imports: [ SharedModule ]
     })
     .compileComponents();
   }));

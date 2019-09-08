@@ -3,6 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DashboardShellComponent } from './dashboard-shell.component';
 import { DashboardItemComponent } from '../dashboard-item/dashboard-item.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardTableComponent } from '../dashboard-table/dashboard-table.component';
 
 describe('DashboardShellComponent', () => {
   let component: DashboardShellComponent;
@@ -10,8 +12,8 @@ describe('DashboardShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardShellComponent, DashboardItemComponent ],
-      imports: [ HttpClientTestingModule ]
+      declarations: [ DashboardShellComponent, DashboardItemComponent, DashboardTableComponent ],
+      imports: [ HttpClientTestingModule, SharedModule ]
     })
     .compileComponents();
   }));

@@ -12,12 +12,14 @@ import { MenuComponent } from './app-shell/menu.component';
 import { SharedModule } from './shared/shared.module';
 import { SubMenuComponent } from './app-shell/sub-menu.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,
+        FormsModule,
         RouterTestingModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([])
