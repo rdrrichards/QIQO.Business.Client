@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
 
 @Component({
   selector: 'qiqo-invoice-shell',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceShellComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private breadcrumbService: BreadcrumbService) {
+    this.breadcrumbService.setItems([
+      {label: 'Invoices'}
+    ]);
+  }
   ngOnInit() {
   }
 

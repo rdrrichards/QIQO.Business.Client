@@ -1,0 +1,16 @@
+<div class="layout-dashboard">
+  <div class="p-grid">
+    <div class="p-col-12 p-lg-6 p-xl-3" *ngFor="let item of dashboardItems$ | async">
+      <qiqo-dashboard-item [type]="item.type" [title]="item.title" [class]="item.class"
+        [primary]="item.primary" [secondary]="item.secondary"
+        [primaryIcon]="item.primaryIcon" [secondaryIcon]="item.secondaryIcon"
+        [cols]="item.cols" [data]="item.data"></qiqo-dashboard-item>
+    </div>
+    <div class="p-col-12 p-lg-6" *ngFor="let item of dashboardTables$ | async">
+        <qiqo-dashboard-item [type]="item.type" [title]="item.title" [class]="item.class"
+          [primary]="item.primary" [secondary]="item.secondary"
+          [primaryIcon]="item.primaryIcon" [secondaryIcon]="item.secondaryIcon"
+          [cols]="item.cols" [data]="item.data"></qiqo-dashboard-item>
+      </div>
+  </div>
+</div>

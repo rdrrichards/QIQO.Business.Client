@@ -9,6 +9,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { DialogModule } from 'primeng/dialog';
     InputTextModule,
     InputSwitchModule,
     RadioButtonModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TableModule
   ],
   exports: [
     CalendarModule,
@@ -31,7 +33,8 @@ import { DialogModule } from 'primeng/dialog';
     InputTextModule,
     InputSwitchModule,
     RadioButtonModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TableModule
   ]
 })
 export class PrimeNgModule { }

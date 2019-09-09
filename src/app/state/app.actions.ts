@@ -1,7 +1,9 @@
 import { createAction, props, union } from '@ngrx/store';
 import { User } from '../models/user';
 
-export const fetchUser = createAction('[Application] Fetch User');
+export interface LoginPayload { userName: string; password: string; }
+
+export const fetchUser = createAction('[Application] Fetch User', (login: LoginPayload) => login);
 export const fetchUserSuccess = createAction(
   '[Application] Fetch User Success', props<User>()
 );

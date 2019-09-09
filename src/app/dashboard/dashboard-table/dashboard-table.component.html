@@ -1,0 +1,26 @@
+<p-table [columns]="cols" [value]="items" selectionMode="single" dataKey="vin" [(selection)]="selectedItem" [responsive]="true"
+                [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th>
+                View
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+            <td>
+                <div class="ui-g">
+                    <div class="ui-g-6"><p-button icon="pi pi-search" type="button"></p-button></div>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

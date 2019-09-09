@@ -6,15 +6,16 @@
 
   <div class="login-input-wrapper" style="margin: 1em; width: 100%">
       <input type="text" autocomplete="off" placeholder="Username"
-        class="ui-inputtext ui-widget" style="width: 90%">
+        class="ui-inputtext ui-widget" style="width: 90%" [(ngModel)]="userName">
   </div>
 
   <div class="login-input-wrapper" style="margin: 1em; width: 100%">
       <input type="password" autocomplete="off" placeholder="Password"
-        class="ui-inputtext ui-widget" style="width: 90%">
+        class="ui-inputtext ui-widget" style="width: 90%" [(ngModel)]="password">
   </div>
 
-  <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin: 1em;" >
+  <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+    style="margin: 1em;" (click)="login()">
       <span class="ui-button-text ui-c">Sign In</span>
   </button>
 </div>

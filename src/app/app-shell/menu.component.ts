@@ -20,6 +20,31 @@ export class MenuComponent implements OnInit, AfterViewInit {
                   {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']}
               ]
           },
+          { label: 'Accounts', icon: 'pi pi-fw pi-users',
+              items: [
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/accounts']}
+              ]
+          },
+          { label: 'Orders', icon: 'pi pi-fw pi-star',
+              items: [
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/orders']}
+              ]
+          },
+          { label: 'Invoices', icon: 'pi pi-fw pi-money-bill',
+              items: [
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/invoices']}
+              ]
+          },
+          { label: 'Products', icon: 'pi pi-fw pi-th-large',
+              items: [
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/products']}
+              ]
+          },
+          { label: 'Company', icon: 'pi pi-fw pi-briefcase',
+              items: [
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/companies']}
+              ]
+          },
           { label: 'Customization', icon: 'pi pi-fw pi-cog',
               items: [
                   {

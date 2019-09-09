@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
 
 @Component({
   selector: 'qiqo-order-shell',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private breadcrumbService: BreadcrumbService) {
+    this.breadcrumbService.setItems([
+      {label: 'Orders'}
+    ]);
+  }
 
   ngOnInit() {
   }

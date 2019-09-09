@@ -10,7 +10,8 @@ export const environment = {
   ordersUrl: 'api/orders',
   productsUrl: 'api/products',
   addressesUrl: 'api/addresses',
-  usersUrl: 'api/users'
+  usersUrl: 'api/users',
+  dashboardsUrl: 'api/dashboardItems'
 };
 
 /*

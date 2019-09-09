@@ -1,0 +1,21 @@
+<div [ngSwitch]="type">
+  <div *ngSwitchCase="'overview'">
+    <div class="overview-box {{class}}">
+      <i class="overview-icon pi pi-{{primaryIcon}}"></i>
+      <span class="overview-title">{{title}}</span>
+      <i class="overview-arrow pi pi-{{secondaryIcon}}"></i>
+      <div class="overview-numbers">
+        {{primary}}
+      </div>
+      <div class="overview-subinfo">
+        {{secondary}}
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'table'">
+    <div class="card card-w-title global-sales p-fluid">
+        <h1>{{title}}</h1>
+        <qiqo-dashboard-table [cols]="cols" [items]="data"></qiqo-dashboard-table>
+    </div>
+  </div>
+</div>
