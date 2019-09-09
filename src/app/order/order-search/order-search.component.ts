@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-search.component.css']
 })
 export class OrderSearchComponent implements OnInit {
-
+  searchTerm: string;
   constructor() { }
 
   ngOnInit() {
+  }
+  search() {
+    console.log(this.searchTerm);
   }
 
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddressComponent } from './address/address.component';
 import { AttributeComponent } from './attribute/attribute.component';
 import { CommentComponent } from './comment/comment.component';
@@ -30,6 +30,7 @@ import { PrimeNgModule } from './primeng.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     PrimeNgModule
   ],
@@ -45,6 +46,7 @@ import { PrimeNgModule } from './primeng.module';
     NavigationComponent,
     DynamicFormComponent,
     DynamicFieldComponent,
+    FormsModule,
     PrimeNgModule
   ]
 })
