@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderSearchComponent } from './order-search.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('OrderSearchComponent', () => {
   let component: OrderSearchComponent;
@@ -8,7 +9,8 @@ describe('OrderSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderSearchComponent ]
+      declarations: [ OrderSearchComponent ],
+      imports: [ SharedModule ]
     })
     .compileComponents();
   }));
