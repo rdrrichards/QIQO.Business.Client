@@ -3,7 +3,7 @@ import * as orderActions from './order.actions';
 import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: OrderState = {
-  user: ''
+
 };
 
 const orderReducer = createReducer(initialState,
