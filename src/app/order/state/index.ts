@@ -1,3 +1,7 @@
+import { Order } from 'src/app/models';
+
 export interface OrderState {
-  user: string;
+  foundOrders?: Order[];
+  openOrders?: Order[];
+  recentOrders?: Order[];
 }
