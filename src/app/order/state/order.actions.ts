@@ -12,7 +12,7 @@ export const fetchOrderFail = createAction(
 export interface FindOrdersPayload { companyKey: number; term: string; }
 export const findOrders = createAction('[Order] Find Orders', (payload: FindOrdersPayload) => payload);
 export const findOrdersSuccess = createAction(
-  '[Order] Find Orders Success', props<Order[]>()
+  '[Order] Find Orders Success', props<{ payload: Order[] }>()
 );
 export const findOrdersFail = createAction(
   '[Order] Find Orders Fail', props<{ message: string }>()
@@ -21,7 +21,7 @@ export const findOrdersFail = createAction(
 export interface OpenOrdersPayload { companyKey: number; }
 export const fetchOpenOrders = createAction('[Order] Fetch Open Orders', (payload: OpenOrdersPayload) => payload);
 export const fetchOpenOrdersSuccess = createAction(
-  '[Order] Fetch Open Orders Success', props<Order[]>()
+  '[Order] Fetch Open Orders Success', props<{ payload: Order[] }>()
 );
 export const fetchOpenOrdersFail = createAction(
   '[Order] Fetch Open Orders Fail', props<{ message: string }>()
@@ -30,7 +30,7 @@ export const fetchOpenOrdersFail = createAction(
 export interface RecentOrdersPayload { companyKey: number; user: string; }
 export const fetchRecentOrders = createAction('[Order] Fetch Recent Orders', (payload: RecentOrdersPayload) => payload);
 export const fetchRecentOrdersSuccess = createAction(
-  '[Order] Fetch Recent Orders Success', props<Order[]>()
+  '[Order] Fetch Recent Orders Success', props<{ payload: Order[] }>()
 );
 export const fetchRecentOrdersFail = createAction(
   '[Order] Fetch Recent Orders Fail', props<{ message: string }>()
