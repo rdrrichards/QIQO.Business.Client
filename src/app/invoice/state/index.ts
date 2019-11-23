@@ -1,3 +1,8 @@
+import { Invoice } from 'src/app/models';
+
 export interface InvoiceState {
-  user: string;
+  currentInvoice?: Invoice;
+  foundInvoices?: Invoice[];
+  openInvoices?: Invoice[];
+  recentInvoices?: Invoice[];
 }
