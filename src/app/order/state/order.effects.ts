@@ -11,9 +11,33 @@ export class OrderEffects {
 
   loadOrder$ = createEffect(() => this.actions$.pipe(
     ofType(orderActions.fetchOrder),
-    mergeMap(() => this.orderService.getOrder('').pipe(
-        map(user => (orderActions.fetchOrderSuccess(user)),
+    mergeMap(action => this.orderService.getOrder(action.payload).pipe(
+        map(order => (orderActions.fetchOrderSuccess({ payload: order})),
         catchError(err => of(orderActions.fetchOrderFail(err.message)))
+        )
+      ))
+  ));
+  findOrder$ = createEffect(() => this.actions$.pipe(
+    ofType(orderActions.findOrders),
+    mergeMap(action => this.orderService.findOrder(action.term).pipe(
+        map(orders => (orderActions.findOrdersSuccess({ payload: orders })),
+        catchError(err => of(orderActions.findOrdersFail(err.message)))
+        )
+      ))
+  ));
+  loadRecentOrders$ = createEffect(() => this.actions$.pipe(
+    ofType(orderActions.fetchRecentOrders),
+    mergeMap(action => this.orderService.getRecentOrders().pipe(
+        map(orders => (orderActions.fetchRecentOrdersSuccess({ payload: orders })),
+        catchError(err => of(orderActions.fetchRecentOrdersFail(err.message)))
+        )
+      ))
+  ));
+  saveOrder$ = createEffect(() => this.actions$.pipe(
+    ofType(orderActions.saveOrder),
+    mergeMap(action => this.orderService.saveOrder(action).pipe(
+        map(order => (orderActions.saveOrderSuccess(order)),
+        catchError(err => of(orderActions.saveOrderFail(err.message)))
         )
       ))
   ));

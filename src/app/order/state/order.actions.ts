@@ -1,9 +1,9 @@
 import { createAction, props, union } from '@ngrx/store';
 import { Order } from 'src/app/models';
 
-export const fetchOrder = createAction('[Order] Fetch Order');
+export const fetchOrder = createAction('[Order] Fetch Order', props<{ payload: number }>());
 export const fetchOrderSuccess = createAction(
-  '[Order] Fetch Order Success', props<{}>()
+  '[Order] Fetch Order Success', props<{ payload: Order }>()
 );
 export const fetchOrderFail = createAction(
   '[Order] Fetch Order Fail', props<{ message: string }>()
