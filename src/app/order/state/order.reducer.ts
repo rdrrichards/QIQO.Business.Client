@@ -3,13 +3,24 @@ import * as orderActions from './order.actions';
 import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: OrderState = {
-
+  currentOrder: null,
+  foundOrders: [],
+  openOrders: [],
+  recentOrders: []
 };
 
 const orderReducer = createReducer(initialState,
-  on(orderActions.fetchOrder, state => { console.log('fetchOrder'); return state; }),
-  on(orderActions.fetchOrderSuccess, state => { console.log('fetchOrderSuccess'); return state; }),
-  on(orderActions.fetchOrderFail, state => { console.log('fetchOrderFail'); return state; }),
+  on(orderActions.fetchOrderSuccess, (state, { payload }) => ({ ...state, currentOrder: payload })),
+  on(orderActions.fetchOrderFail, state => ({ ...state, currentOrder: null })),
+
+  on(orderActions.findOrdersSuccess, (state, { payload }) => ({ ...state, foundOrders: payload })),
+  on(orderActions.findOrdersFail, state => ({ ...state, foundOrders: null })),
+
+  on(orderActions.fetchOpenOrdersSuccess, (state, { payload }) => ({ ...state, openOrders: payload })),
+  on(orderActions.fetchOpenOrdersFail, state => ({ ...state, openOrders: null })),
+
+  on(orderActions.fetchRecentOrdersSuccess, (state, { payload }) => ({ ...state, recentOrders: payload })),
+  on(orderActions.fetchRecentOrdersFail, state => ({ ...state, recentOrders: [] })),
 );
 
 export function reducer(state: OrderState | undefined, action: Action) {
