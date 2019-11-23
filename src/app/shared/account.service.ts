@@ -18,4 +18,12 @@ export class AccountService {
     console.log('AccountService.getAccount', `${environment.accountsUrl}?accountKey=${accountKey}`);
     return this.httpClient.get<Account>(`${environment.accountsUrl}?accountKey=${accountKey}`).pipe(map(account => account[0]));
   }
+  findAccount(term: string): Observable<Account[]> {
+    console.log('AccountService.findAccount', `${environment.accountsUrl}?accountName=${term}`);
+    return this.httpClient.get<Account[]>(`${environment.accountsUrl}?accountName=${term}`);
+  }
+  getRecentAccounts(): Observable<Account[]> {
+    console.log('AccountService.getAccounts');
+    return this.httpClient.get<Account[]>(`${environment.accountsUrl}/recent`);
+  }
 }

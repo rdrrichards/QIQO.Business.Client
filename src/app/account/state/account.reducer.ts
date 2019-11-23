@@ -3,13 +3,24 @@ import * as accountActions from './account.actions';
 import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: AccountState = {
-  user: ''
+  currentAccount: null,
+  foundAccounts: [],
+  recentAccounts: [],
+  allAccounts: []
 };
 
 const accountReducer = createReducer(initialState,
-  on(accountActions.fetchAccount, state => { console.log('fetchAccount'); return state; }),
-  on(accountActions.fetchAccountSuccess, state => { console.log('fetchAccountSuccess'); return state; }),
-  on(accountActions.fetchAccountFail, state => { console.log('fetchAccountFail'); return state; }),
+  on(accountActions.fetchAccountsSuccess, (state, { payload }) => ({ ...state, allAccounts: payload })),
+  on(accountActions.fetchAccountsFail, state => ({ ...state, allAccounts: [] })),
+
+  on(accountActions.fetchAccountSuccess, (state, { payload }) => ({ ...state, currentAccounts: payload })),
+  on(accountActions.fetchAccountFail, state => ({ ...state, currentAccounts: null })),
+
+  on(accountActions.findAccountSuccess, (state, { payload }) => ({ ...state, foundAccounts: payload })),
+  on(accountActions.findAccountFail, state => ({ ...state, foundAccounts: null })),
+
+  on(accountActions.fetchRecentAccountsSuccess, (state, { payload }) => ({ ...state, recentAccounts: payload })),
+  on(accountActions.fetchRecentAccountsFail, state => ({ ...state, recentAccounts: [] })),
 );
 
 export function reducer(state: AccountState | undefined, action: Action) {

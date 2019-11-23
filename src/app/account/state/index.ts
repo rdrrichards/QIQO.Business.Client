@@ -1,3 +1,8 @@
+import { Account } from '../../models/account';
+
 export interface AccountState {
-  user: string;
+  currentAccount: Account;
+  recentAccounts?: Account[];
+  foundAccounts?: Account[];
+  allAccounts?: Account[];
 }
