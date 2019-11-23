@@ -13,8 +13,8 @@ const accountReducer = createReducer(initialState,
   on(accountActions.fetchAccountsSuccess, (state, { payload }) => ({ ...state, allAccounts: payload })),
   on(accountActions.fetchAccountsFail, state => ({ ...state, allAccounts: [] })),
 
-  on(accountActions.fetchAccountSuccess, (state, { payload }) => ({ ...state, currentAccounts: payload })),
-  on(accountActions.fetchAccountFail, state => ({ ...state, currentAccounts: null })),
+  on(accountActions.fetchAccountSuccess, (state, { payload }) => ({ ...state, currentAccount: payload })),
+  on(accountActions.fetchAccountFail, state => ({ ...state, currentAccount: null })),
 
   on(accountActions.findAccountSuccess, (state, { payload }) => ({ ...state, foundAccounts: payload })),
   on(accountActions.findAccountFail, state => ({ ...state, foundAccounts: null })),
