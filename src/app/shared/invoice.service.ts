@@ -13,7 +13,7 @@ export class InvoiceService {
   constructor(private httpClient: HttpClient) { }
   getInvoice(InvoiceKey: number): Observable<Invoice> {
     console.log('InvoiceService.getInvoice', `${environment.invoicesUrl}?InvoiceKey=${InvoiceKey}`);
-    return this.httpClient.get<Invoice>(`${environment.invoicesUrl}?InvoiceKey=${InvoiceKey}`).pipe(map(Invoice => Invoice[0]));
+    return this.httpClient.get<Invoice>(`${environment.invoicesUrl}?InvoiceKey=${InvoiceKey}`).pipe(map(invoice => invoice[0]));
   }
   findInvoice(term: string): Observable<Invoice[]> {
     console.log('InvoiceService.findInvoice', `${environment.invoicesUrl}?InvoiceName=${term}`);
