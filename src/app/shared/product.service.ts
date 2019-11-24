@@ -10,7 +10,20 @@ import { map } from 'rxjs/operators';
 })
 export class ProductService {
   constructor(private httpClient: HttpClient) { }
-  getProduct(userName: string): Observable<Product> {
-    return this.httpClient.get<Product>(`${environment.usersUrl}?name=${userName}`).pipe(map(users => users[0]));
+  getProducts(): Observable<Product[]> {
+    console.log('ProductService.getProducts');
+    return this.httpClient.get<Product[]>(environment.productsUrl);
+  }
+  getProduct(productKey: number): Observable<Product> {
+    console.log('ProductService.getProduct', `${environment.productsUrl}?productKey=${productKey}`);
+    return this.httpClient.get<Product>(`${environment.productsUrl}?productKey=${productKey}`).pipe(map(product => product[0]));
+  }
+  findProduct(term: string): Observable<Product[]> {
+    console.log('ProductService.findProduct', `${environment.productsUrl}?productName=${term}`);
+    return this.httpClient.get<Product[]>(`${environment.productsUrl}?productName=${term}`);
+  }
+  getRecentProducts(): Observable<Product[]> {
+    console.log('ProductService.getProducts');
+    return this.httpClient.get<Product[]>(`${environment.productsUrl}/recent`);
   }
 }

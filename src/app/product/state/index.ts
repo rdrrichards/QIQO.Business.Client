@@ -1,3 +1,8 @@
+import { Product } from 'src/app/models';
+
 export interface ProductState {
-  user: string;
+  currentProduct: Product;
+  recentProducts?: Product[];
+  foundProducts?: Product[];
+  allProducts?: Product[];
 }
