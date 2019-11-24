@@ -1,3 +1,6 @@
+import { Company } from 'src/app/models';
+
 export interface CompanyState {
-  user: string;
+  currentCompany: Company;
+  foundCompanies?: Company[];
 }

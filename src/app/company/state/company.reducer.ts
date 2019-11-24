@@ -3,13 +3,16 @@ import * as companyActions from './company.actions';
 import { createReducer, on, Action } from '@ngrx/store';
 
 export const initialState: CompanyState = {
-  user: ''
+  currentCompany: null,
+  foundCompanies: []
 };
 
 const companyReducer = createReducer(initialState,
-  on(companyActions.fetchCompany, state => { console.log('fetchCompany'); return state; }),
-  on(companyActions.fetchCompanySuccess, state => { console.log('fetchCompanySuccess'); return state; }),
-  on(companyActions.fetchCompanyFail, state => { console.log('fetchCompanyFail'); return state; }),
+  on(companyActions.fetchCompanySuccess, (state, { payload }) => ({ ...state, currentCompany: payload })),
+  on(companyActions.fetchCompanyFail, state => ({ ...state, currentCompany: null })),
+
+  on(companyActions.findCompanySuccess, (state, { payload }) => ({ ...state, foundCompanys: payload })),
+  on(companyActions.findCompanyFail, state => ({ ...state, foundCompanies: null })),
 );
 
 export function reducer(state: CompanyState | undefined, action: Action) {

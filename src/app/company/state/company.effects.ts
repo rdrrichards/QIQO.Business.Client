@@ -11,8 +11,16 @@ export class CompanyEffects {
 
   loadCompany$ = createEffect(() => this.actions$.pipe(
     ofType(companyActions.fetchCompany),
-    mergeMap(() => this.companyService.getCompany('').pipe(
-        map(user => (companyActions.fetchCompanySuccess(user)),
+    mergeMap(action => this.companyService.getCompany(action.payload).pipe(
+        map(company => (companyActions.fetchCompanySuccess({ payload: company })),
+        catchError(err => of(companyActions.fetchCompanyFail(err.message)))
+        )
+      ))
+  ));
+  findCompany$ = createEffect(() => this.actions$.pipe(
+    ofType(companyActions.findCompany),
+    mergeMap(action => this.companyService.findCompany(action.payload.searchTerm).pipe(
+        map(companies => (companyActions.findCompanySuccess({ payload: companies })),
         catchError(err => of(companyActions.fetchCompanyFail(err.message)))
         )
       ))

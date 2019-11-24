@@ -10,7 +10,11 @@ import { map } from 'rxjs/operators';
 })
 export class CompanyService {
   constructor(private httpClient: HttpClient) { }
-  getCompany(userName: string): Observable<Company> {
-    return this.httpClient.get<Company>(`${environment.usersUrl}?name=${userName}`).pipe(map(users => users[0]));
+  getCompany(key: number): Observable<Company> {
+    return this.httpClient.get<Company>(`${environment.companiesUrl}?companyKey=${key}`).pipe(map(users => users[0]));
+  }
+  findCompany(term: string): Observable<Company[]> {
+    console.log('CompanyService.findCompany', `${environment.companiesUrl}?companyName=${term}`);
+    return this.httpClient.get<Company[]>(`${environment.companiesUrl}?companyName=${term}`);
   }
 }
