@@ -1,15 +1,24 @@
 import { DashboardState } from '.';
 import * as dashboardActions from './dashboard.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const initialState: DashboardState = {
-  user: ''
+  dashboardItems: []
 };
 
+export const selectFeature = createFeatureSelector<DashboardState>('dashboardState');
+export const selectOverviewDashboardItems = createSelector(
+  selectFeature,
+  (state: DashboardState) => state.dashboardItems.filter(i => i.type === 'overview')
+);
+export const selectTableDashboardItems = createSelector(
+  selectFeature,
+  (state: DashboardState) => state.dashboardItems.filter(i => i.type === 'table')
+);
+
 const dashboardReducer = createReducer(initialState,
-  on(dashboardActions.fetchUser, state => { console.log('fetchUser'); return state; }),
-  on(dashboardActions.fetchUserSuccess, state => { console.log('fetchUserSuccess'); return state; }),
-  on(dashboardActions.fetchUserFail, state => { console.log('fetchUserFail'); return state; }),
+  on(dashboardActions.fetchDashboardItemsSuccess, (state, { payload }) => ({ ...state, allAccounts: payload })),
+  on(dashboardActions.fetchDashboardItemsFail, state => ({ ...state, allAccounts: [] })),
 );
 
 export function reducer(state: DashboardState | undefined, action: Action) {
