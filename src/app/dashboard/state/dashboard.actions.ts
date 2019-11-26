@@ -1,14 +1,15 @@
 import { createAction, props, union } from '@ngrx/store';
+import { DashboardItem } from 'src/app/models';
 
-export const fetchUser = createAction('[Dashboard] Fetch User');
-export const fetchUserSuccess = createAction(
-  '[Dashboard] Fetch User Success', props<{}>()
+export const fetchDashboardItems = createAction('[Dashboard] Fetch Dashboard Items');
+export const fetchDashboardItemsSuccess = createAction(
+  '[Dashboard] Fetch Dashboard Items Success', props<{ payload: DashboardItem[] }>()
 );
-export const fetchUserFail = createAction(
-  '[Dashboard] Fetch User Fail', props<{ message: string }>()
+export const fetchDashboardItemsFail = createAction(
+  '[Dashboard] Fetch Dashboard Items Fail', props<{ message: string }>()
 );
 
 const actions = union({
-  fetchUser, fetchUserSuccess, fetchUserFail,
+  fetchDashboardItems, fetchDashboardItemsSuccess, fetchDashboardItemsFail,
 });
 export type DashboardActionsUnion = typeof actions;

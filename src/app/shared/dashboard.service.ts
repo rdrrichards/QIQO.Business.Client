@@ -9,6 +9,9 @@ import { DashboardItem } from '../models';
 })
 export class DashboardService {
   constructor(private httpClient: HttpClient) { }
+  getDashboardItems(): Observable<DashboardItem[]> {
+    return this.httpClient.get<DashboardItem[]>(`${environment.dashboardsUrl}`);
+  }
   getDashboardOverviews(): Observable<DashboardItem[]> {
     return this.httpClient.get<DashboardItem[]>(`${environment.dashboardsUrl}?type=overview`);
   }
