@@ -20,7 +20,7 @@ import { OrderEffects } from './state/order.effects';
     SharedModule,
     OrderRoutingModule,
     StoreModule.forFeature('orderState', fromOrderState.reducer),
-    EffectsModule.forRoot([OrderEffects]),
+    EffectsModule.forFeature([OrderEffects]),
   ]
 })
 export class OrderModule { }

@@ -15,7 +15,7 @@ import { AdminEffects } from './state/admin.effects';
     CommonModule,
     AdminRoutingModule,
     StoreModule.forFeature('adminState', fromAdminState.reducer),
-    EffectsModule.forRoot([AdminEffects]),
+    EffectsModule.forFeature([AdminEffects]),
   ]
 })
 export class AdminModule { }

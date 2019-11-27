@@ -17,7 +17,7 @@ import { CompanyEffects } from './state/company.effects';
     SharedModule,
     CompanyRoutingModule,
     StoreModule.forFeature('companyState', fromCompanyState.reducer),
-    EffectsModule.forRoot([CompanyEffects]),
+    EffectsModule.forFeature([CompanyEffects]),
   ]
 })
 export class CompanyModule { }

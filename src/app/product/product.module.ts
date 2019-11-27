@@ -20,7 +20,7 @@ import { ProductEffects } from './state/product.effects';
     SharedModule,
     ProductRoutingModule,
     StoreModule.forFeature('productState', fromProductState.reducer),
-    EffectsModule.forRoot([ProductEffects]),
+    EffectsModule.forFeature([ProductEffects]),
   ]
 })
 export class ProductModule { }

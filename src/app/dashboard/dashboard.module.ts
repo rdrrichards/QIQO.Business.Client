@@ -20,7 +20,7 @@ import { DashboardTableComponent } from './dashboard-table/dashboard-table.compo
     SharedModule,
     DashboardRoutingModule,
     StoreModule.forFeature('dashboardState', fromDashboardState.reducer),
-    EffectsModule.forRoot([DashboardEffects]),
+    EffectsModule.forFeature([DashboardEffects]),
   ]
 })
 export class DashboardModule { }

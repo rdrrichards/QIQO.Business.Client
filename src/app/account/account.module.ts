@@ -20,7 +20,7 @@ import * as fromAccountState from './state/account.reducer';
     SharedModule,
     AccountRoutingModule,
     StoreModule.forFeature('accountState', fromAccountState.reducer),
-    EffectsModule.forRoot([AccountEffects]),
+    EffectsModule.forFeature([AccountEffects]),
   ]
 })
 export class AccountModule { }
