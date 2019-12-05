@@ -58,7 +58,7 @@ import { LoginComponent } from './login/login.component';
       }
     }),
     EffectsModule.forRoot([AppEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 50, logOnly: environment.production, name: 'QIQO Business Client State' })
   ],
   providers: [
     // { provide: ErrorHandler, useClass: GlobalErrorHandler },
