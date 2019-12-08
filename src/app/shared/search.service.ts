@@ -33,14 +33,14 @@ export class SearchService {
     return this.invoiceService.findInvoice(term).pipe(
       map(invoices =>
         invoices.map(invoice => ({ code: invoice.invoiceNumber, name: invoice.account.accountName,
-          note: invoice.invoiceEntryDate.toISOString() })))
+          note: invoice.invoiceEntryDate.toString() })))
     );
   }
   findOrder(term: string): Observable<SearchResult[]> {
     return this.orderService.findOrder(term).pipe(
       map(orders =>
         orders.map(order => ({ code: order.orderNumber, name: order.account.accountName,
-          note: order.orderEntryDate.toISOString() })))
+          note: order.orderEntryDate.toString() })))
     );
   }
   findProduct(term: string): Observable<SearchResult[]> {

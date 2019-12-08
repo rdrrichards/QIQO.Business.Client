@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
-import { EntityType } from 'src/app/models';
+import { EntityType, SearchResult } from 'src/app/models';
 
 @Component({
   selector: 'qiqo-order-shell',
@@ -9,6 +9,7 @@ import { EntityType } from 'src/app/models';
 })
 export class OrderShellComponent implements OnInit {
   EntityType = EntityType;
+  searchResults: SearchResult[];
   constructor(private breadcrumbService: BreadcrumbService) {
     this.breadcrumbService.setItems([
       {label: 'Orders'}
@@ -17,5 +18,7 @@ export class OrderShellComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onNewResults(event: SearchResult[]) {
+    this.searchResults = event;
+  }
 }

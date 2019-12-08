@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SearchService } from '../search.service';
 import { EntityType, SearchResult } from 'src/app/models';
 import { Observable } from 'rxjs';
@@ -11,26 +11,27 @@ import { Observable } from 'rxjs';
 export class SearchComponent implements OnInit {
   searchTerm: string;
   @Input() entityType: EntityType;
-  searchResult$: Observable<SearchResult[]>;
+  @Output() newResults = new EventEmitter<SearchResult[]>();
+  // searchResult$: Observable<SearchResult[]>;
   constructor(private searchService: SearchService) { }
   ngOnInit() {
   }
   search() {
     switch (this.entityType) {
       case EntityType.Account:
-        this.searchResult$ = this.searchService.findAccount(this.searchTerm);
+        this.searchService.findAccount(this.searchTerm).subscribe(results => this.newResults.emit(results));
         break;
       case EntityType.Company:
-        this.searchResult$ = this.searchService.findCompany(this.searchTerm);
+        this.searchService.findCompany(this.searchTerm).subscribe(results => this.newResults.emit(results));
         break;
       case EntityType.Invoice:
-        this.searchResult$ = this.searchService.findInvoice(this.searchTerm);
+        this.searchService.findInvoice(this.searchTerm).subscribe(results => this.newResults.emit(results));
         break;
       case EntityType.Order:
-        this.searchResult$ = this.searchService.findOrder(this.searchTerm);
+        this.searchService.findOrder(this.searchTerm).subscribe(results => this.newResults.emit(results));
         break;
       case EntityType.Product:
-        this.searchResult$ = this.searchService.findProduct(this.searchTerm);
+        this.searchService.findProduct(this.searchTerm).subscribe(results => this.newResults.emit(results));
         break;
       default:
         break;
