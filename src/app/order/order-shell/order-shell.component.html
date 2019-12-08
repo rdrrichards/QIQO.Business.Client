@@ -1,8 +1,8 @@
 <div class="p-grid">
   <div class="p-col-12">
-    <qiqo-order-search></qiqo-order-search>
+    <qiqo-search [entityType]="EntityType.Order" (newResults)="onNewResults($event)"></qiqo-search>
   </div>
   <div class="p-col-12">
-    <qiqo-order-list></qiqo-order-list>
+    <qiqo-list [results]="searchResults"></qiqo-list>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { AddressType, EntityType, AccountType } from '../models/enums';
-import { Address, Account, User, DashboardItem } from '../models';
+import { AddressType, EntityType, AccountType, OrderStatus } from '../models/enums';
+import { Address, Account, User, DashboardItem, Order } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -82,6 +82,100 @@ export class InMemoryDataService implements InMemoryDbService {
         ]
       }
     ];
-    return { addresses, accounts, users, dashboardItems };
+    const orders: Order[] = [
+      // { id: 'ORD0000111', date: '2019-09-01', name: 'Same Old Account', total: '$ 60.00' },
+      // { id: 'ORD0000112', date: '2019-07-01', name: 'New Account', total: '$ 60.00' },
+      // { id: 'ORD0000113', date: '2019-08-01', name: 'JD', total: '$ 60.00' },
+      // { id: 'ORD0000114', date: '2019-04-01', name: 'Sports', total: '$ 60.00' },
+      { orderKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        ccountContactKey: 1,
+        orderNumber: 'ORD0000111',
+        orderAccountContact: null,
+        orderItemCount: 1,
+        orderValueSum: 1,
+        orderEntryDate: new Date('2019-09-01'),
+        orderStatusDate: new Date('2019-09-01'),
+        orderShipDate: null,
+        orderCompleteDate: null,
+        orderStatus: OrderStatus.Open,
+        orderStatusData: null,
+        orderItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { orderKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        ccountContactKey: 1,
+        orderNumber: 'ORD0000112',
+        orderAccountContact: null,
+        orderItemCount: 1,
+        orderValueSum: 1,
+        orderEntryDate: new Date('2019-09-01'),
+        orderStatusDate: new Date('2019-09-01'),
+        orderShipDate: null,
+        orderCompleteDate: null,
+        orderStatus: OrderStatus.Open,
+        orderStatusData: null,
+        orderItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { orderKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        ccountContactKey: 1,
+        orderNumber: 'ORD0000113',
+        orderAccountContact: null,
+        orderItemCount: 1,
+        orderValueSum: 1,
+        orderEntryDate: new Date('2019-09-01'),
+        orderStatusDate: new Date('2019-09-01'),
+        orderShipDate: null,
+        orderCompleteDate: null,
+        orderStatus: OrderStatus.Open,
+        orderStatusData: null,
+        orderItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { orderKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        ccountContactKey: 1,
+        orderNumber: 'ORD0000114',
+        orderAccountContact: null,
+        orderItemCount: 1,
+        orderValueSum: 1,
+        orderEntryDate: new Date('2019-09-01'),
+        orderStatusDate: new Date('2019-09-01'),
+        orderShipDate: null,
+        orderCompleteDate: null,
+        orderStatus: OrderStatus.Open,
+        orderStatusData: null,
+        orderItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      }
+    ];
+    return { addresses, accounts, users, dashboardItems, orders };
   }
 }

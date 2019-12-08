@@ -12,12 +12,12 @@ import { OrderStatus } from '../models';
 export class OrderService {
   constructor(private httpClient: HttpClient) { }
   getOrder(OrderKey: number): Observable<Order> {
-    console.log('OrderService.getOrder', `${environment.ordersUrl}?OrderKey=${OrderKey}`);
-    return this.httpClient.get<Order>(`${environment.ordersUrl}?OrderKey=${OrderKey}`).pipe(map(order => order[0]));
+    console.log('OrderService.getOrder', `${environment.ordersUrl}?orderKey=${OrderKey}`);
+    return this.httpClient.get<Order>(`${environment.ordersUrl}?orderKey=${OrderKey}`).pipe(map(order => order[0]));
   }
   findOrder(term: string): Observable<Order[]> {
-    console.log('OrderService.findOrder', `${environment.ordersUrl}?OrderName=${term}`);
-    return this.httpClient.get<Order[]>(`${environment.ordersUrl}?OrderName=${term}`);
+    console.log('OrderService.findOrder', `${environment.ordersUrl}?orderNumber=${term}`);
+    return this.httpClient.get<Order[]>(`${environment.ordersUrl}?orderNumber=${term}`);
   }
   getRecentOrders(): Observable<Order[]> {
     console.log('OrderService.getOrders');

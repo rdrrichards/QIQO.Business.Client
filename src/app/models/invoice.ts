@@ -2,6 +2,7 @@ import { Person } from './person';
 import { InvoiceStatus, InvoiceItemStatus } from './enums';
 import { Address } from './address';
 import { Product } from './product';
+import { Account } from './account';
 
 export interface Invoice {
     invoiceKey: number;
