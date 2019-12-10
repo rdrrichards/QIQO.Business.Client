@@ -1,2 +1,8 @@
-<!-- <qiqo-account [account]="account$ | async"></qiqo-account> -->
-<router-outlet></router-outlet>
+<div class="p-grid">
+  <div class="p-col-12">
+    <qiqo-search [entityType]="EntityType.Account" (newResults)="onNewResults($event)"></qiqo-search>
+  </div>
+  <div class="p-col-12">
+    <qiqo-list [results]="searchResults"></qiqo-list>
+  </div>
+</div>
