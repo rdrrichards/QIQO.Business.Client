@@ -1,3 +1,16 @@
-<div *ngFor="let result of results">
-  {{ result.code }} {{ result.name }} {{ result.note }}
-</div>
+<p-table *ngIf="results" [columns]="cols" [value]="results" selectionMode="single"  [(selection)]="selectedItem" dataKey="code">
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" [style.width]="col.width">
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+        </td>
+    </tr>
+  </ng-template>
+</p-table>

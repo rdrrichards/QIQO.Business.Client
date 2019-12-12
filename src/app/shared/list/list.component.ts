@@ -8,6 +8,12 @@ import { SearchResult } from 'src/app/models';
 })
 export class ListComponent implements OnInit {
   @Input() results: SearchResult[];
+  selectedItem: any;
+  cols = [
+    { field: 'code', header: 'Code', width: '15%' },
+    { field: 'name', header: 'Name', width: '25%' },
+    { field: 'note', header: 'Note', width: '45%' }
+  ];
   constructor() { }
 
   ngOnInit() {
