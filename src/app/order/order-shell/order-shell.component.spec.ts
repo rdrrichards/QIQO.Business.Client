@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { OrderShellComponent } from './order-shell.component';
-import { OrderSearchComponent } from '../order-search/order-search.component';
-import { OrderListComponent } from '../order-list/order-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('OrderShellComponent', () => {
@@ -11,8 +10,8 @@ describe('OrderShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderShellComponent, OrderSearchComponent, OrderListComponent ],
-      imports: [ SharedModule ]
+      declarations: [ OrderShellComponent ],
+      imports: [ SharedModule, HttpClientTestingModule ]
     })
     .compileComponents();
   }));
