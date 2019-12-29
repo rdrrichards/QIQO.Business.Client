@@ -16,8 +16,8 @@ export class InvoiceService {
     return this.httpClient.get<Invoice>(`${environment.invoicesUrl}?InvoiceKey=${InvoiceKey}`).pipe(map(invoice => invoice[0]));
   }
   findInvoice(term: string): Observable<Invoice[]> {
-    console.log('InvoiceService.findInvoice', `${environment.invoicesUrl}?InvoiceName=${term}`);
-    return this.httpClient.get<Invoice[]>(`${environment.invoicesUrl}?InvoiceName=${term}`);
+    console.log('InvoiceService.findInvoice', `${environment.invoicesUrl}?InvoiceNumber=${term}`);
+    return this.httpClient.get<Invoice[]>(`${environment.invoicesUrl}?InvoiceNumber=${term}`);
   }
   getRecentInvoices(): Observable<Invoice[]> {
     console.log('InvoiceService.getInvoices');

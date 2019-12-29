@@ -1,1 +1,8 @@
-<p>invoice-shell works!</p>
+<div class="p-grid">
+  <div class="p-col-12">
+    <qiqo-search [entityType]="EntityType.Invoice" (newResults)="onNewResults($event)"></qiqo-search>
+  </div>
+  <div class="p-col-12">
+    <qiqo-list [results]="searchResults"></qiqo-list>
+  </div>
+</div>

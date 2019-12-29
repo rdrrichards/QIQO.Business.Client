@@ -9,7 +9,7 @@ export interface Invoice {
     fromEntityKey: number;
     accountKey: number;
     account: Account;
-    ccountContactKey: number;
+    accountContactKey: number;
     invoiceNumber: string;
     invoiceAccountContact: Person;
     invoiceItemCount: number;

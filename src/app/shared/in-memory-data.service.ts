@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { AddressType, EntityType, AccountType, OrderStatus } from '../models/enums';
-import { Address, Account, User, DashboardItem, Order } from '../models';
+import { AddressType, EntityType, AccountType, OrderStatus, InvoiceStatus } from '../models/enums';
+import { Address, Account, User, DashboardItem, Order, Invoice } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -91,7 +91,7 @@ export class InMemoryDataService implements InMemoryDbService {
         fromEntityKey: 1,
         accountKey: 1,
         account: accounts[0],
-        ccountContactKey: 1,
+        accountContactKey: 1,
         orderNumber: 'ORD0000111',
         orderAccountContact: null,
         orderItemCount: 1,
@@ -113,7 +113,7 @@ export class InMemoryDataService implements InMemoryDbService {
         fromEntityKey: 1,
         accountKey: 1,
         account: accounts[0],
-        ccountContactKey: 1,
+        accountContactKey: 1,
         orderNumber: 'ORD0000112',
         orderAccountContact: null,
         orderItemCount: 1,
@@ -135,7 +135,7 @@ export class InMemoryDataService implements InMemoryDbService {
         fromEntityKey: 1,
         accountKey: 1,
         account: accounts[0],
-        ccountContactKey: 1,
+        accountContactKey: 1,
         orderNumber: 'ORD0000113',
         orderAccountContact: null,
         orderItemCount: 1,
@@ -157,7 +157,7 @@ export class InMemoryDataService implements InMemoryDbService {
         fromEntityKey: 1,
         accountKey: 1,
         account: accounts[0],
-        ccountContactKey: 1,
+        accountContactKey: 1,
         orderNumber: 'ORD0000114',
         orderAccountContact: null,
         orderItemCount: 1,
@@ -176,6 +176,92 @@ export class InMemoryDataService implements InMemoryDbService {
         updateDateTime: null
       }
     ];
-    return { addresses, accounts, users, dashboardItems, orders };
+    const invoices: Invoice[] = [
+      { invoiceKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        accountContactKey: 1,
+        invoiceNumber: 'INV0000111',
+        invoiceAccountContact: null,
+        invoiceItemCount: 1,
+        invoiceValueSum: 1,
+        invoiceEntryDate: new Date('2019-09-01'),
+        invoiceStatusDate: new Date('2019-09-01'),
+        invoiceCompleteDate: null,
+        invoiceStatus: InvoiceStatus.New,
+        invoiceStatusData: null,
+        invoiceItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { invoiceKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        accountContactKey: 1,
+        invoiceNumber: 'INV0000112',
+        invoiceAccountContact: null,
+        invoiceItemCount: 1,
+        invoiceValueSum: 1,
+        invoiceEntryDate: new Date('2019-09-01'),
+        invoiceStatusDate: new Date('2019-09-01'),
+        invoiceCompleteDate: null,
+        invoiceStatus: InvoiceStatus.New,
+        invoiceStatusData: null,
+        invoiceItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { invoiceKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        accountContactKey: 1,
+        invoiceNumber: 'INV0000113',
+        invoiceAccountContact: null,
+        invoiceItemCount: 1,
+        invoiceValueSum: 1,
+        invoiceEntryDate: new Date('2019-09-01'),
+        invoiceStatusDate: new Date('2019-09-01'),
+        invoiceCompleteDate: null,
+        invoiceStatus: InvoiceStatus.New,
+        invoiceStatusData: null,
+        invoiceItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      },
+      { invoiceKey: 1,
+        fromEntityKey: 1,
+        accountKey: 1,
+        account: accounts[0],
+        accountContactKey: 1,
+        invoiceNumber: 'INV0000114',
+        invoiceAccountContact: null,
+        invoiceItemCount: 1,
+        invoiceValueSum: 1,
+        invoiceEntryDate: new Date('2019-09-01'),
+        invoiceStatusDate: new Date('2019-09-01'),
+        invoiceCompleteDate: null,
+        invoiceStatus: InvoiceStatus.New,
+        invoiceStatusData: null,
+        invoiceItems: [],
+        comments: [],
+        addedUserID: null,
+        addedDateTime: null,
+        updateUserID: null,
+        updateDateTime: null
+      }
+    ];
+    return { addresses, accounts, users, dashboardItems, orders, invoices };
   }
 }
