@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { AddressType, EntityType, AccountType, OrderStatus, InvoiceStatus } from '../models/enums';
-import { Address, Account, User, DashboardItem, Order, Invoice } from '../models';
+import { AddressType, EntityType, AccountType, OrderStatus, InvoiceStatus, ProductType } from '../models/enums';
+import { Address, Account, User, DashboardItem, Order, Invoice, Product } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -262,6 +262,25 @@ export class InMemoryDataService implements InMemoryDbService {
         updateDateTime: null
       }
     ];
-    return { addresses, accounts, users, dashboardItems, orders, invoices };
+    const products: Product[] = [
+      {
+        productKey: 1,
+        productType: ProductType.Sweet10,
+        productTypeData: null,
+        productCode: 'PRD0001',
+        productName: 'Product 0001',
+        productDesc: 'Product 0001 Description',
+        productNameShort: 'Product 0001 Description Short',
+        productNameLong: 'Product 0001 Description Long',
+        productImagePath: '',
+        productAttributes: null,
+        productDescCombo: 'PRD0001',
+        addedUserID: 'PRD0001',
+        addedDateTime: new Date(2020, 1, 1),
+        updateUserID: 'PRD0001',
+        updateDateTime: new Date(2020, 1, 1)
+      }
+    ];
+    return { addresses, accounts, users, dashboardItems, orders, invoices, products };
   }
 }
