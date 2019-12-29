@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
+import { EntityType, SearchResult } from 'src/app/models';
 
 @Component({
   selector: 'qiqo-product-shell',
@@ -7,6 +8,8 @@ import { BreadcrumbService } from 'src/app/shared/breadcrumb.service';
   styleUrls: ['./product-shell.component.css']
 })
 export class ProductShellComponent implements OnInit {
+  EntityType = EntityType;
+  searchResults: SearchResult[];
 
   constructor(private breadcrumbService: BreadcrumbService) {
     this.breadcrumbService.setItems([
@@ -15,6 +18,9 @@ export class ProductShellComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  onNewResults(event: SearchResult[]) {
+    this.searchResults = event;
   }
 
 }
