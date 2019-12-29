@@ -22,7 +22,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
           },
           { label: 'Accounts', icon: 'pi pi-fw pi-users',
               items: [
-                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/accounts']}
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/accounts']},
+                  {label: 'New', icon: 'pi pi-fw pi-plus-circle', routerLink: ['/accounts/new']}
               ]
           },
           { label: 'Orders', icon: 'pi pi-fw pi-star',
@@ -39,7 +40,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
           },
           { label: 'Products', icon: 'pi pi-fw pi-th-large',
               items: [
-                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/products']}
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/products']},
+                  {label: 'New', icon: 'pi pi-fw pi-plus-circle', routerLink: ['/products/new']}
               ]
           },
           { label: 'Company', icon: 'pi pi-fw pi-briefcase',
