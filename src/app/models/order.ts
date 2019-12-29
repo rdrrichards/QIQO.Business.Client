@@ -9,7 +9,7 @@ export interface Order {
     fromEntityKey: number;
     accountKey: number;
     account: Account;
-    ccountContactKey: number;
+    accountContactKey: number;
     orderNumber: string;
     orderAccountContact: Person;
     orderItemCount: number;

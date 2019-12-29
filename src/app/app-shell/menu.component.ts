@@ -33,7 +33,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
           },
           { label: 'Invoices', icon: 'pi pi-fw pi-money-bill',
               items: [
-                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/invoices']}
+                  {label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/invoices']},
+                  {label: 'New', icon: 'pi pi-fw pi-plus-circle', routerLink: ['/invoices/new']}
               ]
           },
           { label: 'Products', icon: 'pi pi-fw pi-th-large',
