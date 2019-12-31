@@ -29,4 +29,7 @@ export class AccountShellComponent implements OnInit {
   onNewResults(event: SearchResult[]) {
     this.searchResults = event;
   }
+  showAccountQuickCreate() {
+    console.log('showAccountQuickCreate...');
+  }
 }

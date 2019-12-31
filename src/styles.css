@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.table-btn {
+  background-color: #2196F3;
+  border-color: #2196F3;
+  border-radius: 50%;
+}
+
+  .table-btn:hover, .table-btn:active {
+      color: #fff;
+      background-color: #6a3cb4 !important;
+      border-color: #6a3cb4 !important;
+  }
+
+.quick-add-btn {
+  font-size: 36px;
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+}
+
+.layout-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}

@@ -13,6 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { DynamicFormComponent } from './dynamic/dynamic-form/dynamic-form.component';
 import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.component';
 import { PrimeNgModule } from './primeng.module';
+import { QuickCreateComponent } from './quick-create/quick-create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PrimeNgModule } from './primeng.module';
     SearchComponent,
     NavigationComponent,
     DynamicFormComponent,
-    DynamicFieldComponent
+    DynamicFieldComponent,
+    QuickCreateComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { PrimeNgModule } from './primeng.module';
     NavigationComponent,
     DynamicFormComponent,
     DynamicFieldComponent,
+    QuickCreateComponent,
     FormsModule,
     PrimeNgModule
   ]
