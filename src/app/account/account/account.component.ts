@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Account } from 'src/app/models/account';
+import { Account, AccountType } from 'src/app/models';
 import { AccountFormDefinition } from './account-form-def';
 import { FieldDefinition } from 'src/app/shared/dynamic/field-definition';
 
@@ -10,6 +10,7 @@ import { FieldDefinition } from 'src/app/shared/dynamic/field-definition';
 })
 export class AccountComponent implements OnInit {
   @Input() account: Account;
+  @Input() isQuickCreate = false;
   @Output() create = new EventEmitter<Account>();
   @Output() update = new EventEmitter<Account>();
   private formDef: AccountFormDefinition;
@@ -24,7 +25,9 @@ export class AccountComponent implements OnInit {
     console.log('AccountComponent account', this.account);
     this.accountOriginal = Object.assign({}, this.account);
     this.formDef = new AccountFormDefinition();
-    this.accountFormDef = this.formDef.accountFormDefinition;
+    this.accountFormDef = !this.isQuickCreate ? this.formDef.accountFormDefinition : this.formDef.accountQuickCreateFormDefinition;
+    this.account = this.isQuickCreate ? { accountType: AccountType.Individual, accountName: '' } : this.account;
+    this.account = !this.account ? { accountKey: 0, companyKey: 1, accountType: AccountType.Individual, accountName: '' } : this.account;
   }
   updateAccount(account: Account) {
     this.update.emit(account);

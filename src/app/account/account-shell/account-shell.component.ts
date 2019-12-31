@@ -14,6 +14,7 @@ export class AccountShellComponent implements OnInit {
   // account$: Observable<Account>;
   EntityType = EntityType;
   searchResults: SearchResult[];
+  showQuickCreateDialog = false;
   constructor(private breadcrumbService: BreadcrumbService, private accountService: AccountService) {
     this.breadcrumbService.setItems([
       {label: 'Account'}
@@ -31,5 +32,10 @@ export class AccountShellComponent implements OnInit {
   }
   showAccountQuickCreate() {
     console.log('showAccountQuickCreate...');
+    this.showQuickCreateDialog = true;
+  }
+  test() {
+    console.log('test...');
+    this.showQuickCreateDialog = false;
   }
 }

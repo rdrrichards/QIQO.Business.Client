@@ -14,6 +14,7 @@ import { DynamicFormComponent } from './dynamic/dynamic-form/dynamic-form.compon
 import { DynamicFieldComponent } from './dynamic/dynamic-field/dynamic-field.component';
 import { PrimeNgModule } from './primeng.module';
 import { QuickCreateComponent } from './quick-create/quick-create.component';
+import { QuickCreateDialogComponent } from './quick-create/quick-create-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { QuickCreateComponent } from './quick-create/quick-create.component';
     NavigationComponent,
     DynamicFormComponent,
     DynamicFieldComponent,
-    QuickCreateComponent
+    QuickCreateComponent,
+    QuickCreateDialogComponent
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { QuickCreateComponent } from './quick-create/quick-create.component';
     DynamicFormComponent,
     DynamicFieldComponent,
     QuickCreateComponent,
+    QuickCreateDialogComponent,
     FormsModule,
     PrimeNgModule
   ]
