@@ -1,0 +1,11 @@
+<p-dialog [header]="header" [(visible)]="display" [modal]="true" [responsive]="true"
+    [style]="{width: '70%', minWidth: '500px', height: '70%', minHeight: '500px'}" [minY]="70"
+    [maximizable]="true" [baseZIndex]="10000">
+  <p>&nbsp;</p>
+    <ng-content></ng-content>
+  <p>&nbsp;</p>
+  <p-footer>
+      <button type="button" pButton icon="pi pi-check" (click)="onSave()" label="Save"></button>
+      <button type="button" pButton icon="pi pi-close" (click)="onCancel()" label="Cancel" class="ui-button-secondary"></button>
+  </p-footer>
+</p-dialog>

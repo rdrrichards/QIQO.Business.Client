@@ -15,4 +15,8 @@ export class AccountFormDefinition {
     { key: 'accountStartDate', type: 'date', label: 'Start Date', required: true },
     { key: 'accountEndDate', type: 'date', label: 'End Date' }
   ];
+  accountQuickCreateFormDefinition: FieldDefinition[] = [
+    { key: 'accountType', type: 'select', label: 'Type', required: true, options: this.accountTypes },
+    { key: 'accountName', type: 'string', label: 'Name', required: true }
+  ];
 }

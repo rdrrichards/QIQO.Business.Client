@@ -5,23 +5,23 @@ import { FeeSchedule } from './fee-shedule';
 import { Contact } from './contact';
 
 export interface Account {
-  accountKey: number;
-  companyKey: number;
+  accountKey?: number;
+  companyKey?: number;
   accountType: AccountType;
-  accountCode: string;
+  accountCode?: string;
   accountName: string;
-  accountDesc: string;
+  accountDesc?: string;
   accountDBA?: string;
-  accountStartDate: Date;
+  accountStartDate?: Date;
   accountEndDate?: Date;
-  addresses: Address[];
-  accountAttributes: EntityAttribute[];
+  addresses?: Address[];
+  accountAttributes?: EntityAttribute[];
   feeSchedules?: FeeSchedule[];
   employees?: any[]; // = new List<AccountPerson>();
   contacts?: Contact[];
   comments?: Comment[];
-  addedUserID: string;
-  addedDateTime: Date;
+  addedUserID?: string;
+  addedDateTime?: Date;
   updateUserID?: string;
   updateDateTime?: Date;
 }
