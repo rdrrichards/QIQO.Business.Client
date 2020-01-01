@@ -1,6 +1,7 @@
 import { createAction, props, union } from '@ngrx/store';
 import { AccountSearchSpecification } from '../models/account-search-specification';
 import { Account } from '../../models/account';
+import { SearchResult } from 'src/app/models';
 
 export const fetchAccounts = createAction('[Account] Fetch Accounts');
 export const fetchAccountsSuccess = createAction(
@@ -20,7 +21,7 @@ export const fetchAccountFail = createAction(
 
 export const findAccount = createAction('[Account] Find Account', props<{ payload: AccountSearchSpecification }>());
 export const findAccountSuccess = createAction(
-  '[Account] Find Account Success', props<{ payload: Account[]}>()
+  '[Account] Find Account Success', props<{ payload: SearchResult[]}>()
 );
 export const findAccountFail = createAction(
   '[Account] Find Account Fail', props<{ message: string }>()
