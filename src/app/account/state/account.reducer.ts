@@ -1,6 +1,6 @@
 import { AccountState } from '.';
 import * as accountActions from './account.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createSelector, createFeatureSelector } from '@ngrx/store';
 
 export const initialState: AccountState = {
   currentAccount: null,
@@ -9,10 +9,12 @@ export const initialState: AccountState = {
   allAccounts: []
 };
 
-export const selectCurrentAccount = (state: AccountState) => state.currentAccount;
-export const selectFoundAccounts = (state: AccountState) => state.foundAccounts;
-export const selectRecentAccounts = (state: AccountState) => state.recentAccounts;
-export const selectAllAccounts = (state: AccountState) => state.allAccounts;
+export const selectFeature = createFeatureSelector<AccountState>('accountState');
+
+export const selectCurrentAccount = createSelector(selectFeature, (state: AccountState) => state.currentAccount);
+export const selectFoundAccounts = createSelector(selectFeature, (state: AccountState) => state.foundAccounts);
+export const selectRecentAccounts = createSelector(selectFeature, (state: AccountState) => state.recentAccounts);
+export const selectAllAccounts = createSelector(selectFeature, (state: AccountState) => state.allAccounts);
 
 const accountReducer = createReducer(initialState,
   on(accountActions.fetchAccountsSuccess, (state, { payload }) => ({ ...state, allAccounts: payload })),
