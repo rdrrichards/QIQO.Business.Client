@@ -9,6 +9,11 @@ export const initialState: AccountState = {
   allAccounts: []
 };
 
+export const selectCurrentAccount = (state: AccountState) => state.currentAccount;
+export const selectFoundAccounts = (state: AccountState) => state.foundAccounts;
+export const selectRecentAccounts = (state: AccountState) => state.recentAccounts;
+export const selectAllAccounts = (state: AccountState) => state.allAccounts;
+
 const accountReducer = createReducer(initialState,
   on(accountActions.fetchAccountsSuccess, (state, { payload }) => ({ ...state, allAccounts: payload })),
   on(accountActions.fetchAccountsFail, state => ({ ...state, allAccounts: [] })),

@@ -25,7 +25,25 @@ export class InMemoryDataService implements InMemoryDbService {
         addressDefaultFlag: true,
         addressActiveFlag: true,
         addedUserID: 'RR',
-        addedDateTime: new Date('2018-08-22') },
+        addedDateTime: new Date('2018-08-22')
+      },
+      {
+        addressKey: 2,
+        addressType: AddressType.Mailing,
+        entityKey: 1,
+        entityType: EntityType.Account,
+        addressLine1: 'P.O. Box 555K',
+        addressCity: 'Nashville',
+        addressState: 'TN',
+        addressCounty: '',
+        addressCountry: 'USA',
+        addressPostalCode: '37211',
+        addressNotes: 'PO Box for invoices',
+        addressDefaultFlag: true,
+        addressActiveFlag: true,
+        addedUserID: 'RR',
+        addedDateTime: new Date('2018-08-22')
+      }
     ];
     const accounts: Account[] = [
       {
@@ -36,7 +54,45 @@ export class InMemoryDataService implements InMemoryDbService {
         accountName: 'R. Richards',
         accountDesc: 'R. Richards',
         accountStartDate: new Date('2018-08-22'),
-        accountEndDate: new Date('2028-08-22'),
+        addresses: [ ...addresses ],
+        accountAttributes: [],
+        addedUserID: 'RR',
+        addedDateTime: new Date('2018-08-22')
+      },
+      {
+        accountKey: 2,
+        companyKey: 1,
+        accountType: AccountType.Individual,
+        accountCode: '00002',
+        accountName: 'M. Richards',
+        accountDesc: 'M. Richards',
+        accountStartDate: new Date('2019-08-22'),
+        addresses: [ ...addresses ],
+        accountAttributes: [],
+        addedUserID: 'RR',
+        addedDateTime: new Date('2018-08-22')
+      },
+      {
+        accountKey: 3,
+        companyKey: 1,
+        accountType: AccountType.Individual,
+        accountCode: '00003',
+        accountName: 'K. Richards',
+        accountDesc: 'K. Richards',
+        accountStartDate: new Date('2010-10-22'),
+        addresses: [ ...addresses ],
+        accountAttributes: [],
+        addedUserID: 'RR',
+        addedDateTime: new Date('2018-08-22')
+      },
+      {
+        accountKey: 4,
+        companyKey: 1,
+        accountType: AccountType.Business,
+        accountCode: '00004',
+        accountName: 'M. Company',
+        accountDesc: 'M. Company',
+        accountStartDate: new Date('2001-07-30'),
         addresses: [ ...addresses ],
         accountAttributes: [],
         addedUserID: 'RR',
@@ -278,6 +334,23 @@ export class InMemoryDataService implements InMemoryDbService {
         addedUserID: 'PRD0001',
         addedDateTime: new Date(2020, 1, 1),
         updateUserID: 'PRD0001',
+        updateDateTime: new Date(2020, 1, 1)
+      },
+      {
+        productKey: 2,
+        productType: ProductType.Sweet9,
+        productTypeData: null,
+        productCode: 'PRD0002',
+        productName: 'Product 0002',
+        productDesc: 'Product 0002 Description',
+        productNameShort: 'Product 0002 Description Short',
+        productNameLong: 'Product 0002 Description Long',
+        productImagePath: '',
+        productAttributes: null,
+        productDescCombo: 'PRD0002',
+        addedUserID: 'RR1',
+        addedDateTime: new Date(2020, 1, 1),
+        updateUserID: 'RR1',
         updateDateTime: new Date(2020, 1, 1)
       }
     ];
