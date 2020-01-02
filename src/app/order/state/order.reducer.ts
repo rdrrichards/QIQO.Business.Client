@@ -1,6 +1,6 @@
 import { OrderState } from '.';
 import * as orderActions from './order.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const initialState: OrderState = {
   currentOrder: null,
@@ -8,6 +8,13 @@ export const initialState: OrderState = {
   openOrders: [],
   recentOrders: []
 };
+
+export const selectFeature = createFeatureSelector<OrderState>('orderState');
+
+export const selectCurrentOrder = createSelector(selectFeature, (state: OrderState) => state.currentOrder);
+export const selectFoundOrders = createSelector(selectFeature, (state: OrderState) => state.foundOrders);
+export const selectRecentOrders = createSelector(selectFeature, (state: OrderState) => state.recentOrders);
+export const selectOpenOrders = createSelector(selectFeature, (state: OrderState) => state.openOrders);
 
 const orderReducer = createReducer(initialState,
   on(orderActions.fetchOrderSuccess, (state, { payload }) => ({ ...state, currentOrder: payload })),

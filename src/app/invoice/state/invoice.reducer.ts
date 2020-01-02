@@ -1,6 +1,6 @@
 import { InvoiceState } from '.';
 import * as invoiceActions from './invoice.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const initialState: InvoiceState = {
   currentInvoice: null,
@@ -8,6 +8,13 @@ export const initialState: InvoiceState = {
   openInvoices: [],
   recentInvoices: []
 };
+
+export const selectFeature = createFeatureSelector<InvoiceState>('invoiceState');
+
+export const selectCurrentInvoice = createSelector(selectFeature, (state: InvoiceState) => state.currentInvoice);
+export const selectFoundInvoices = createSelector(selectFeature, (state: InvoiceState) => state.foundInvoices);
+export const selectRecentInvoices = createSelector(selectFeature, (state: InvoiceState) => state.recentInvoices);
+export const selectOpenInvoices = createSelector(selectFeature, (state: InvoiceState) => state.openInvoices);
 
 const invoiceReducer = createReducer(initialState,
   on(invoiceActions.fetchInvoiceSuccess, (state, { payload }) => ({ ...state, currentInvoice: payload })),

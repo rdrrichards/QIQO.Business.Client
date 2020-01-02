@@ -1,6 +1,6 @@
 import { ProductState } from '.';
 import * as productActions from './product.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const initialState: ProductState = {
   currentProduct: null,
@@ -8,6 +8,13 @@ export const initialState: ProductState = {
   recentProducts: [],
   allProducts: []
 };
+
+export const selectFeature = createFeatureSelector<ProductState>('productState');
+
+export const selectCurrentProduct = createSelector(selectFeature, (state: ProductState) => state.currentProduct);
+export const selectFoundProducts = createSelector(selectFeature, (state: ProductState) => state.foundProducts);
+export const selectRecentProducts = createSelector(selectFeature, (state: ProductState) => state.recentProducts);
+export const selectAllProducts = createSelector(selectFeature, (state: ProductState) => state.allProducts);
 
 const productReducer = createReducer(initialState,
   on(productActions.fetchProductsSuccess, (state, { payload }) => ({ ...state, allProducts: payload })),

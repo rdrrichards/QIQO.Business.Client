@@ -1,11 +1,16 @@
 import { CompanyState } from '.';
 import * as companyActions from './company.actions';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const initialState: CompanyState = {
   currentCompany: null,
   foundCompanies: []
 };
+
+export const selectFeature = createFeatureSelector<CompanyState>('companyState');
+
+export const selectCurrentCompany = createSelector(selectFeature, (state: CompanyState) => state.currentCompany);
+export const selectFoundCompanys = createSelector(selectFeature, (state: CompanyState) => state.foundCompanies);
 
 const companyReducer = createReducer(initialState,
   on(companyActions.fetchCompanySuccess, (state, { payload }) => ({ ...state, currentCompany: payload })),
