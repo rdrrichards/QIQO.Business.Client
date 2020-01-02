@@ -1,5 +1,5 @@
 import { createAction, props, union } from '@ngrx/store';
-import { Invoice } from 'src/app/models';
+import { Invoice, SearchResult } from 'src/app/models';
 
 export const fetchInvoice = createAction('[Invoice] Fetch Invoice', props<{ payload: number }>());
 export const fetchInvoiceSuccess = createAction(
@@ -12,7 +12,7 @@ export const fetchInvoiceFail = createAction(
 export interface FindInvoicesPayload { companyKey: number; term: string; }
 export const findInvoices = createAction('[Invoice] Find Invoices', (payload: FindInvoicesPayload) => payload);
 export const findInvoicesSuccess = createAction(
-  '[Invoice] Find Invoices Success', props<{ payload: Invoice[] }>()
+  '[Invoice] Find Invoices Success', props<{ payload: SearchResult[] }>()
 );
 export const findInvoicesFail = createAction(
   '[Invoice] Find Invoices Fail', props<{ message: string }>()

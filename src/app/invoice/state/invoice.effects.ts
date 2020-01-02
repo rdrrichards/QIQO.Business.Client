@@ -17,14 +17,14 @@ export class InvoiceEffects {
         )
       ))
   ));
-  findInvoice$ = createEffect(() => this.actions$.pipe(
-    ofType(invoiceActions.findInvoices),
-    mergeMap(action => this.invoiceService.findInvoice(action.term).pipe(
-        map(invoices => (invoiceActions.findInvoicesSuccess({ payload: invoices })),
-        catchError(err => of(invoiceActions.findInvoicesFail(err.message)))
-        )
-      ))
-  ));
+  // findInvoice$ = createEffect(() => this.actions$.pipe(
+  //   ofType(invoiceActions.findInvoices),
+  //   mergeMap(action => this.invoiceService.findInvoice(action.term).pipe(
+  //       map(invoices => (invoiceActions.findInvoicesSuccess({ payload: invoices })),
+  //       catchError(err => of(invoiceActions.findInvoicesFail(err.message)))
+  //       )
+  //     ))
+  // ));
   loadRecentInvoices$ = createEffect(() => this.actions$.pipe(
     ofType(invoiceActions.fetchRecentInvoices),
     mergeMap(action => this.invoiceService.getRecentInvoices().pipe(

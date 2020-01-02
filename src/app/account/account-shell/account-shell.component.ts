@@ -27,7 +27,6 @@ export class AccountShellComponent implements OnInit {
   ngOnInit() {
     this.account$ = this.accountStore.pipe(select(accountReducer.selectCurrentAccount));
     this.accountStore.pipe(select(accountReducer.selectFoundAccounts)).subscribe(accounts => {
-      console.log('ngOnInit accounts', accounts);
       if (accounts  && accounts.length > 0) {
         this.searchResults = accounts;
       }
@@ -35,7 +34,6 @@ export class AccountShellComponent implements OnInit {
   }
   onNewResults(event: SearchResult[]) {
     this.searchResults = event;
-    console.log('onNewResults event', event);
     this.accountStore.dispatch(accountActions.findAccountSuccess({ payload: event.length > 0 ? event : [] }));
   }
   showAccountQuickCreate() {

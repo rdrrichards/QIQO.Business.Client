@@ -1,8 +1,8 @@
-import { Invoice } from 'src/app/models';
+import { Invoice, SearchResult } from 'src/app/models';
 
 export interface InvoiceState {
   currentInvoice?: Invoice;
-  foundInvoices?: Invoice[];
+  foundInvoices?: SearchResult[];
   openInvoices?: Invoice[];
   recentInvoices?: Invoice[];
 }
