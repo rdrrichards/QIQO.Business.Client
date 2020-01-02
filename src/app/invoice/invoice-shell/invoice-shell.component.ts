@@ -32,7 +32,6 @@ export class InvoiceShellComponent implements OnInit {
     });
   }
   onNewResults(event: SearchResult[]) {
-    this.searchResults = event;
     this.invoiceStore.dispatch(invoiceActions.findInvoicesSuccess({ payload: event.length > 0 ? event : [] }));
   }
 }

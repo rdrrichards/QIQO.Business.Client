@@ -33,7 +33,6 @@ export class AccountShellComponent implements OnInit {
     });
   }
   onNewResults(event: SearchResult[]) {
-    this.searchResults = event;
     this.accountStore.dispatch(accountActions.findAccountSuccess({ payload: event.length > 0 ? event : [] }));
   }
   showAccountQuickCreate() {
