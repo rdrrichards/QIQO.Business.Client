@@ -1,5 +1,5 @@
 import { createAction, props, union } from '@ngrx/store';
-import { Order } from 'src/app/models';
+import { Order, SearchResult } from 'src/app/models';
 
 export const fetchOrder = createAction('[Order] Fetch Order', props<{ payload: number }>());
 export const fetchOrderSuccess = createAction(
@@ -12,7 +12,7 @@ export const fetchOrderFail = createAction(
 export interface FindOrdersPayload { companyKey: number; term: string; }
 export const findOrders = createAction('[Order] Find Orders', (payload: FindOrdersPayload) => payload);
 export const findOrdersSuccess = createAction(
-  '[Order] Find Orders Success', props<{ payload: Order[] }>()
+  '[Order] Find Orders Success', props<{ payload: SearchResult[] }>()
 );
 export const findOrdersFail = createAction(
   '[Order] Find Orders Fail', props<{ message: string }>()
