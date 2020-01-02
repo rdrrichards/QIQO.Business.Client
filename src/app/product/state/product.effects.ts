@@ -25,14 +25,14 @@ export class ProductEffects {
         )
       ))
   ));
-  findProduct$ = createEffect(() => this.actions$.pipe(
-    ofType(productActions.findProduct),
-    mergeMap(action => this.productService.findProduct(action.payload.searchTerm).pipe(
-        map(products => (productActions.findProductSuccess({ payload: products })),
-        catchError(err => of(productActions.fetchProductFail(err.message)))
-        )
-      ))
-  ));
+  // findProduct$ = createEffect(() => this.actions$.pipe(
+  //   ofType(productActions.findProduct),
+  //   mergeMap(action => this.productService.findProduct(action.payload.searchTerm).pipe(
+  //       map(products => (productActions.findProductSuccess({ payload: products })),
+  //       catchError(err => of(productActions.fetchProductFail(err.message)))
+  //       )
+  //     ))
+  // ));
   loadRecentProducts$ = createEffect(() => this.actions$.pipe(
     ofType(productActions.fetchProducts),
     mergeMap(action => this.productService.getRecentProducts().pipe(

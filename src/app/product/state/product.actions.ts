@@ -1,5 +1,5 @@
 import { createAction, props, union } from '@ngrx/store';
-import { Product } from 'src/app/models';
+import { Product, SearchResult } from 'src/app/models';
 import { ProductSearchSpecification } from '../models/product-search-specification';
 
 export const fetchProducts = createAction('[Product] Fetch Products');
@@ -20,7 +20,7 @@ export const fetchProductFail = createAction(
 
 export const findProduct = createAction('[Product] Find Product', props<{ payload: ProductSearchSpecification }>());
 export const findProductSuccess = createAction(
-  '[Product] Find Product Success', props<{ payload: Product[]}>()
+  '[Product] Find Product Success', props<{ payload: SearchResult[]}>()
 );
 export const findProductFail = createAction(
   '[Product] Find Product Fail', props<{ message: string }>()
