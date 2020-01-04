@@ -21,7 +21,7 @@
       </div>
       <div class="p-col-6">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly"
-          type="number">
+          type="number" [style.width]="field.fieldWidth">
       </div>
       <div class="p-col-4">
           <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
@@ -34,7 +34,7 @@
       </div>
       <div class="p-col-6">
         <p-calendar class="form-control" [formControlName]="field.key" [id]="field.key" [readonlyInput]="isReadOnly"
-          dateFormat="yy-mm-dd"></p-calendar>
+          dateFormat="yy-mm-dd" [style.width]="field.fieldWidth"></p-calendar>
       </div>
       <div class="p-col-4">
           <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
