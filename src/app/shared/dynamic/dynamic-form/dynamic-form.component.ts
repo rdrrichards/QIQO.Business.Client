@@ -45,7 +45,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
         group[field.key].reset(this.datePipe.transform(this.vmCopy[field.key], 'yyyy-MM-dd'));
       }
 
-      group[field.key].valueChanges.subscribe((value: any) => this.onChanged([field.key, value]));
+      // group[field.key].valueChanges.subscribe((value: any) => this.onChanged([field.key, value]));
 
       console.log(`status: ${group[field.key].status}`);
     });
@@ -61,11 +61,13 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    // this.clearForm();
-    this.route.params.subscribe(params => {
-      this.operation = params.operation;
-      this.clearForm();
-    });
+    this.clearForm();
+    // this.route.params.subscribe(params => {
+    //   // this.operation = params.operation;
+    //   this.clearForm();
+    //   console.log('this.operation sub', this.operation);
+    // });
+    // console.log('this.operation', this.operation);
   }
 
   onBack() {
@@ -84,6 +86,9 @@ export class DynamicFormComponent implements OnChanges, OnInit {
       this.create.emit(this.form.value);
     }
   }
+  canCreate() {
+    return !this.form.valid;
+  }
 
   onEdit() {
     this.router.navigate(['../', 'edit'], { relativeTo: this.route });
@@ -99,7 +104,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
 
   onChanged(arg: any) {
     // console.log(`onChanged call fired: ${arg}`);
-    this.changed.emit(arg);
+    // this.changed.emit(arg);
   }
 
   // private isChecked(options: string[], value: string): boolean {

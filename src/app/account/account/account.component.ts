@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
   accountFormDef: FieldDefinition[];
   accountOriginal: Account;
   errorMessage: string;
-  operation: string;
+  operation = 'create';
 
   constructor() { }
 

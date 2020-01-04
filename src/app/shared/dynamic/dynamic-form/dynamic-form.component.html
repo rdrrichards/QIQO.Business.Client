@@ -10,7 +10,7 @@
       {{ errorMessage }}
     </div>
 
-    <div *ngIf="status != 'waiting'">
+    <div *ngIf="status !== 'waiting'">
       <div *ngIf="operation === 'details'">
         <button type="button" class="btn" (click)="onBack()">Back</button>
         <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
@@ -20,8 +20,8 @@
         <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
       </div>
       <div *ngIf="operation === 'create'">
-        <button type="button" class="btn" (click)="onBack()">Back</button>
-        <button type="button" class="btn btn-primary" (click)="onCreate()">Create</button>
+        <button pButton type="button" label="Back" class="ui-button-raised ui-button-secondary" (click)="onBack()"></button>
+        <button pButton type="button" label="Create" class="ui-button-raised ui-button-success" (click)="onCreate()" [disabled]="canCreate()"></button>
       </div>
     </div>
 
