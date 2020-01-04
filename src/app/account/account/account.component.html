@@ -8,7 +8,8 @@
     [errorMessage]="errorMessage"
     (update)="updateAccount($event)"
     (create)="createAccount($event)"
-    (changed)="formValueChanged($event)"></qiqo-dynamic-form>
+    (changed)="formValueChanged($event)"
+    (cancel)="onCancel($event)"></qiqo-dynamic-form>
 
   <div *ngFor="let address of account.addresses">
     <qiqo-address [address]="address"></qiqo-address>

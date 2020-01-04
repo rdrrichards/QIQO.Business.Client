@@ -19,6 +19,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() create: EventEmitter<any> = new EventEmitter();
   @Output() changed: EventEmitter<any> = new EventEmitter();
+  @Output() cancel: EventEmitter<any> = new EventEmitter();
 
   form: FormGroup;
   status: string;
@@ -75,7 +76,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   onCancel() {
-    this.onBack();
+    // this.onBack();
+    this.cancel.emit();
   }
 
   onCreate() {

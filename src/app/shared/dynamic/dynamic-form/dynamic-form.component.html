@@ -21,7 +21,7 @@
         </div>
         <div class="p-col-2"></div>
       </div>
-      <div *ngIf="operation === 'edit'" class="p-grid">
+      <div *ngIf="operation === 'edit' || operation === 'quick'" class="p-grid">
         <div class="p-col-6"></div>
         <div class="p-col-1">
           <button pButton type="button" label="Cancel" class="ui-button-raised ui-button-secondary" (click)="onCancel()"></button>

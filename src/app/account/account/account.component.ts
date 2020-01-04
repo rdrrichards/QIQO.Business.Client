@@ -13,6 +13,7 @@ export class AccountComponent implements OnInit {
   @Input() isQuickCreate = false;
   @Output() create = new EventEmitter<Account>();
   @Output() update = new EventEmitter<Account>();
+  @Output() cancel = new EventEmitter<Account>();
   private formDef: AccountFormDefinition;
   accountFormDef: FieldDefinition[];
   accountOriginal: Account;
@@ -28,6 +29,7 @@ export class AccountComponent implements OnInit {
     this.accountFormDef = !this.isQuickCreate ? this.formDef.accountFormDefinition : this.formDef.accountQuickCreateFormDefinition;
     this.account = this.isQuickCreate ? { accountType: AccountType.Individual, accountName: '' } : this.account;
     this.account = !this.account ? { accountKey: 0, companyKey: 1, accountType: AccountType.Individual, accountName: '' } : this.account;
+    this.operation = this.isQuickCreate ? 'quick' : this.operation;
   }
   updateAccount(account: Account) {
     this.update.emit(account);
@@ -37,5 +39,9 @@ export class AccountComponent implements OnInit {
   }
   formValueChanged(event: any) {
     console.log('AccountComponent formValueChanged', event);
+  }
+  onCancel(event: any) {
+    console.log('cancel', event);
+    this.cancel.emit();
   }
 }

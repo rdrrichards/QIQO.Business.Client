@@ -9,6 +9,6 @@
 
 <qiqo-quick-create (qcClick)="showAccountQuickCreate()"></qiqo-quick-create>
 
-<qiqo-quick-create-dialog [display]="showQuickCreateDialog" header="Account Quick Create" (save)="test()" (cancel)="test()">
-  <qiqo-account isQuickCreate="true"></qiqo-account>
+<qiqo-quick-create-dialog [display]="showQuickCreateDialog" header="Account Quick Create">
+  <qiqo-account isQuickCreate="true" (cancel)="test()"></qiqo-account>
 </qiqo-quick-create-dialog>
