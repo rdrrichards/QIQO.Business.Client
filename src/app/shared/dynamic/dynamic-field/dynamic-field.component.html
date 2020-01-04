@@ -3,108 +3,138 @@
   <div [ngSwitch]="field.type">
 
     <div *ngSwitchCase="'string'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
-        <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly">
+      <div class="p-col-6">
+        <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key"
+          [readonly]="isReadOnly" [style.width]="field.fieldWidth">
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'number'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly"
           type="number">
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'date'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <p-calendar class="form-control" [formControlName]="field.key" [id]="field.key" [readonlyInput]="isReadOnly"
           dateFormat="yy-mm-dd"></p-calendar>
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'email'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly"
           type="email">
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'select'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <p-dropdown [formControlName]="field.key" [id]="field.key" [options]="field.options" [readonly]="isReadOnly">
         </p-dropdown>
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'combo'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <p-dropdown [formControlName]="field.key" [id]="field.key" [options]="field.options" [readonly]="isReadOnly"
           [editable]="true">
         </p-dropdown>
       </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
+      </div>
     </div>
 
     <div *ngSwitchCase="'color'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <p-colorPicker class="form-control" [formControlName]="field.key" [id]="field.key" [disabled]="isReadOnly">
         </p-colorPicker>
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'boolean'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <p-inputSwitch class="form-control" [formControlName]="field.key" [id]="field.key"></p-inputSwitch>
+      </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
       </div>
     </div>
 
     <div *ngSwitchCase="'single-choice'" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <fieldset *ngFor='let opt of field.options'>
           <p-radioButton [formControlName]="field.key" [id]="field.key" type="radio" [value]="opt.value"
             class="single-choice" [label]="opt.label"></p-radioButton> <br />
         </fieldset>
       </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
+      </div>
     </div>
 
     <div *ngSwitchCase="'multi-choice'" [formGroupName]="field.key" class="p-grid">
-      <div class="p-col-3">
+      <div class="p-col-2">
         <label [htmlFor]="field.key">{{ field.label }}</label>
       </div>
-      <div class="p-col-9">
+      <div class="p-col-6">
         <fieldset *ngFor='let opt of field.options'>
           <p-checkbox [formControlName]="opt.value" [id]="field.key" [value]="opt.value" class="multi-choice"
             [label]="opt.label"></p-checkbox><br />
         </fieldset>
       </div>
+      <div class="p-col-4">
+          <p-message severity="error" [text]="field.label + ' is invalid'" *ngIf="!form.controls[field.key].valid&&form.controls[field.key].touched"></p-message>
+      </div>
     </div>
 
-    <div *ngIf="isInvalid" class="alert alert-danger">{{ field.label }} is required.</div>
   </div>
 </div>

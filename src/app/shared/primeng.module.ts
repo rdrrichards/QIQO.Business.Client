@@ -5,11 +5,13 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { CheckboxModule } from 'primeng/checkbox';
+import { MessageModule } from 'primeng/message';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -20,9 +22,11 @@ import { TableModule } from 'primeng/table';
     DropdownModule,
     InputTextModule,
     InputSwitchModule,
+    MessageModule,
     RadioButtonModule,
     ScrollPanelModule,
-    TableModule
+    TableModule,
+    ToastModule
   ],
   exports: [
     CalendarModule,
@@ -32,9 +36,11 @@ import { TableModule } from 'primeng/table';
     DropdownModule,
     InputTextModule,
     InputSwitchModule,
+    MessageModule,
     RadioButtonModule,
     ScrollPanelModule,
-    TableModule
+    TableModule,
+    ToastModule
   ]
 })
 export class PrimeNgModule { }

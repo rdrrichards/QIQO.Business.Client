@@ -10,6 +10,7 @@ export interface FieldDefinition {
   options?: SelectItem[];
   validators?: ValidatorFn[];
   asyncValidators?: AsyncValidatorFn[];
+  fieldWidth?: string;
 }
 
 // class Validators {

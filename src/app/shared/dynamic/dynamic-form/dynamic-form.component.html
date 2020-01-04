@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <div>
 
-    <div *ngFor="let field of vmDefinition">
+    <div *ngFor="let field of vmDefinition" class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
       <qiqo-dynamic-field [field]="field" [form]="form" [operation]="operation" [submitted]="submitted">
       </qiqo-dynamic-field>
     </div>
@@ -10,7 +10,7 @@
       {{ errorMessage }}
     </div>
 
-    <div *ngIf="status !== 'waiting'">
+    <div *ngIf="status !== 'waiting'" style="float: right;">
       <div *ngIf="operation === 'details'">
         <button type="button" class="btn" (click)="onBack()">Back</button>
         <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
@@ -20,7 +20,7 @@
         <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
       </div>
       <div *ngIf="operation === 'create'">
-        <button pButton type="button" label="Back" class="ui-button-raised ui-button-secondary" (click)="onBack()"></button>
+        <button pButton type="button" label="Back" class="ui-button-raised ui-button-secondary" (click)="onBack()"></button>&nbsp;
         <button pButton type="button" label="Create" class="ui-button-raised ui-button-success" (click)="onCreate()" [disabled]="canCreate()"></button>
       </div>
     </div>
