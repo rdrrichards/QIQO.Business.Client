@@ -38,16 +38,15 @@ export class DynamicFormComponent implements OnChanges, OnInit {
     this.vmDefinition.forEach(field => {
       // console.log('field:', field);
       // console.log('this.vmCopy[field.key]:', this.vmCopy[field.key]);
-      group[field.key] = field.required ? new FormControl(this.vmCopy[field.key], Validators.required)
-        : new FormControl(this.vmCopy[field.key]);
+      group[field.key] = new FormControl(this.vmCopy[field.key],
+        Validators.compose(field.validators),
+        Validators.composeAsync(field.asyncValidators));
 
       if (field.type === 'date') {
         group[field.key].reset(this.datePipe.transform(this.vmCopy[field.key], 'yyyy-MM-dd'));
       }
-
       // group[field.key].valueChanges.subscribe((value: any) => this.onChanged([field.key, value]));
-
-      console.log(`status: ${group[field.key].status}`);
+      // console.log(`status: ${group[field.key].status}`);
     });
     this.form = new FormGroup(group);
     console.log(this.form);
