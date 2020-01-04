@@ -11,13 +11,25 @@
     </div>
 
     <div *ngIf="status !== 'waiting'" >
-      <div *ngIf="operation === 'details'">
-        <button type="button" class="btn" (click)="onBack()">Back</button>
-        <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
+      <div *ngIf="operation === 'details'" class="p-grid">
+        <div class="p-col-6"></div>
+        <div class="p-col-1">
+          <button pButton type="button" label="Back" class="ui-button-raised ui-button-secondary" (click)="onBack()"></button>
+        </div>
+        <div class="p-col-1">
+          <button pButton type="button" label="Edit" class="ui-button-raised ui-button-success" (click)="onEdit()"></button>
+        </div>
+        <div class="p-col-2"></div>
       </div>
-      <div *ngIf="operation === 'edit'">
-        <button type="button" class="btn" (click)="onCancel()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+      <div *ngIf="operation === 'edit'" class="p-grid">
+        <div class="p-col-6"></div>
+        <div class="p-col-1">
+          <button pButton type="button" label="Cancel" class="ui-button-raised ui-button-secondary" (click)="onCancel()"></button>
+        </div>
+        <div class="p-col-1">
+          <button pButton type="button" label="Save" class="ui-button-raised ui-button-success" (click)="onSave()" [disabled]="canCreate()"></button>
+        </div>
+        <div class="p-col-2"></div>
       </div>
       <div *ngIf="operation === 'create'" class="p-grid">
         <div class="p-col-6"></div>
