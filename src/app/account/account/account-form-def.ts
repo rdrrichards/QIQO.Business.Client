@@ -5,17 +5,20 @@ import { Validators } from '@angular/forms';
 export class AccountFormDefinition {
 
   accountTypes: OptionDefinition[] = [{ label: 'Business', value: '2' }, { label: 'Individual', value: '3' }];
+  accountTypeField: FieldDefinition =
+    { key: 'accountType', type: 'select', label: 'Type', validators: [ Validators.required ], options: this.accountTypes };
+  accountNameField: FieldDefinition = { key: 'accountName', type: 'string', label: 'Name',
+    validators: [ Validators.required, Validators.maxLength(100) ],
+    fieldWidth: '50%' };
 
   accountFormDefinition: FieldDefinition[] = [
     { key: 'accountKey', type: 'number', isId: true, validators: [ Validators.required ] },
     { key: 'companyKey', type: 'number', isId: true, validators: [ Validators.required ] },
-    { key: 'accountType', type: 'select', label: 'Type', validators: [ Validators.required ], options: this.accountTypes },
+    this.accountTypeField,
     { key: 'accountCode', type: 'string', label: 'Code',
       validators: [ Validators.required, Validators.maxLength(10) ],
       fieldWidth: '15%' },
-    { key: 'accountName', type: 'string', label: 'Name',
-      validators: [ Validators.required, Validators.maxLength(100) ],
-      fieldWidth: '50%' },
+    this.accountNameField,
     { key: 'accountDesc', type: 'string', label: 'Description',
       validators: [ Validators.required, Validators.maxLength(255) ], fieldWidth: '100%' },
     { key: 'accountStartDate', type: 'date', label: 'Start Date', validators: [ Validators.required ] },

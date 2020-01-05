@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
 import { FieldDefinition } from '../field-definition';
 
 @Component({
@@ -32,30 +31,24 @@ export class DynamicFieldComponent {
       return `${this.field.label} is required to be selected (or true)`;
     }
     if (this.form.controls[this.field.key].hasError('maxlength')) {
-      // console.log('maxlength error: ', this.form.controls[this.field.key].getError('maxlength'));
       const err = this.form.controls[this.field.key].getError('maxlength');
-      return `${this.field.label} is too long. The maximum length is ${err.requiredLength}. The current length is ${err.actualLength}`;
+      return `${this.field.label} is too long. The maximum length is ${err.requiredLength}. The current length is ${err.actualLength}.`;
     }
     if (this.form.controls[this.field.key].hasError('minlength')) {
-      // console.log('maxlength error: ', this.form.controls[this.field.key].getError('minlength'));
       const err = this.form.controls[this.field.key].getError('maxlength');
-      return `${this.field.label} is too short. The minimum length is ${err.requiredLength}. The current length is ${err.actualLength}`;
+      return `${this.field.label} is too short. The minimum length is ${err.requiredLength}. The current length is ${err.actualLength}.`;
     }
     if (this.form.controls[this.field.key].hasError('max')) {
-      // console.log('maxlength error: ', this.form.controls[this.field.key].getError('maxlength'));
       const err = this.form.controls[this.field.key].getError('max');
-      return `${this.field.label} value is too high. The maximum value is ${err.max}. The current value is ${err.actual}`;
+      return `${this.field.label} value is too high. The maximum value is ${err.max}. The current value is ${err.actual}.`;
     }
     if (this.form.controls[this.field.key].hasError('min')) {
-      // console.log('maxlength error: ', this.form.controls[this.field.key].getError('minlength'));
       const err = this.form.controls[this.field.key].getError('min');
-      return `${this.field.label} value is too low. The minimum value is ${err.min}. The current low is ${err.actual}`;
+      return `${this.field.label} value is too low. The minimum value is ${err.min}. The current low is ${err.actual}.`;
     }
     if (this.form.controls[this.field.key].hasError('email')) {
       return `${this.field.label} is not a valid email`;
     }
     return `${this.field.label} is invalid`;
   }
-
-  constructor() { }
 }
