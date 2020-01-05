@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuickCreateDialogComponent } from './quick-create-dialog.component';
+import { SharedModule } from '../shared.module';
 
 describe('QuickCreateDialogComponent', () => {
   let component: QuickCreateDialogComponent;
@@ -8,7 +9,8 @@ describe('QuickCreateDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuickCreateDialogComponent ]
+      declarations: [ QuickCreateDialogComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
   }));

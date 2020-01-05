@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
 import { DynamicFieldComponent } from './dynamic-field.component';
 import { PrimeNgModule } from '../../primeng.module';
+import { FormFieldComponent } from '../form-field/form-field.component';
 
 describe('DynamicFieldComponent', () => {
   let component: DynamicFieldComponent;
@@ -10,7 +11,7 @@ describe('DynamicFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicFieldComponent ],
+      declarations: [ DynamicFieldComponent, FormFieldComponent ],
       imports: [ PrimeNgModule, ReactiveFormsModule ]
     })
     .compileComponents();

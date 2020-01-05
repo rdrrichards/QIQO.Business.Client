@@ -8,6 +8,7 @@ import { DynamicFieldComponent } from '../dynamic/dynamic-field/dynamic-field.co
 import { PrimeNgModule } from '../primeng.module';
 import { DatePipe } from '@angular/common';
 import { AddressType } from 'src/app/models/enums';
+import { FormFieldComponent } from '../dynamic/form-field/form-field.component';
 
 describe('AddressComponent', () => {
   let component: AddressComponent;
@@ -15,7 +16,7 @@ describe('AddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressComponent, DynamicFormComponent, DynamicFieldComponent ],
+      declarations: [ AddressComponent, DynamicFormComponent, DynamicFieldComponent, FormFieldComponent ],
       imports: [ PrimeNgModule, ReactiveFormsModule, RouterTestingModule ],
       providers: [DatePipe]
     })

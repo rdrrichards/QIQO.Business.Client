@@ -16,6 +16,9 @@ describe('FormFieldComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FormFieldComponent);
     component = fixture.componentInstance;
+    component.field = { key: '', type: '' };
+    component.invalidMessage = '';
+    component.isInvalid = false;
     fixture.detectChanges();
   });
 
