@@ -2,139 +2,78 @@
 
   <div [ngSwitch]="field.type">
 
-    <div *ngSwitchCase="'string'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'string'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key"
           [readonly]="isReadOnly" [style.width]="field.fieldWidth">
-      </div>
-      <div class="p-col-4">
-          <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'number'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'number'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly"
           type="number" [style.width]="field.fieldWidth">
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'date'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'date'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <p-calendar class="form-control" [formControlName]="field.key" [id]="field.key" [readonlyInput]="isReadOnly"
           dateFormat="yy-mm-dd" [style.width]="field.fieldWidth"></p-calendar>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'email'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'email'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <input pInputText class="form-control" [formControlName]="field.key" [id]="field.key" [readonly]="isReadOnly"
           type="email">
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'select'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'select'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <p-dropdown [formControlName]="field.key" [id]="field.key" [options]="field.options" [readonly]="isReadOnly">
         </p-dropdown>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'combo'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'combo'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <p-dropdown [formControlName]="field.key" [id]="field.key" [options]="field.options" [readonly]="isReadOnly"
           [editable]="true">
         </p-dropdown>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'color'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'color'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <p-colorPicker class="form-control" [formControlName]="field.key" [id]="field.key" [disabled]="isReadOnly">
         </p-colorPicker>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'boolean'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'boolean'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <p-inputSwitch class="form-control" [formControlName]="field.key" [id]="field.key"></p-inputSwitch>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'single-choice'" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'single-choice'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <fieldset *ngFor='let opt of field.options'>
           <p-radioButton [formControlName]="field.key" [id]="field.key" type="radio" [value]="opt.value"
             class="single-choice" [label]="opt.label"></p-radioButton> <br />
         </fieldset>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
 
-    <div *ngSwitchCase="'multi-choice'" [formGroupName]="field.key" class="p-grid">
-      <div class="p-col-2">
-        <label [htmlFor]="field.key">{{ field.label }}</label>
-      </div>
-      <div class="p-col-6">
+    <div *ngSwitchCase="'multi-choice'">
+      <qiqo-form-field [field]="field" [isInvalid]="isInvalid" [invalidMessage]="invalidMessage">
         <fieldset *ngFor='let opt of field.options'>
           <p-checkbox [formControlName]="opt.value" [id]="field.key" [value]="opt.value" class="multi-choice"
             [label]="opt.label"></p-checkbox><br />
         </fieldset>
-      </div>
-      <div class="p-col-4">
-        <p-message severity="error" [text]="invalidMessage" *ngIf="isInvalid"></p-message>
-      </div>
+      </qiqo-form-field>
     </div>
-
   </div>
 </div>
