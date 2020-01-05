@@ -19,7 +19,8 @@ export class AccountFormDefinition {
     { key: 'accountDesc', type: 'string', label: 'Description',
       validators: [ Validators.required, Validators.maxLength(255) ], fieldWidth: '100%' },
     { key: 'accountStartDate', type: 'date', label: 'Start Date', validators: [ Validators.required ] },
-    { key: 'accountEndDate', type: 'date', label: 'End Date' }
+    { key: 'accountEndDate', type: 'date', label: 'End Date' },
+    { key: 'accountEmail', type: 'email', label: 'Email Address', validators: [ Validators.email ] }
   ];
   accountQuickCreateFormDefinition: FieldDefinition[] = [
     { key: 'accountType', type: 'select', label: 'Type', validators: [ Validators.required ], options: this.accountTypes },
