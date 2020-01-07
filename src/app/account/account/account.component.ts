@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Account, AccountType } from 'src/app/models';
+import { Account, AccountType, Address, AddressType, EntityType } from 'src/app/models';
 import { AccountFormDefinition } from './account-form-def';
 import { FieldDefinition } from 'src/app/shared/dynamic/field-definition';
 
@@ -30,6 +30,7 @@ export class AccountComponent implements OnInit {
     this.account = this.isQuickCreate ? { accountType: AccountType.Individual, accountName: '' } : this.account;
     this.account = !this.account ? { accountKey: 0, companyKey: 1, accountType: AccountType.Individual, accountName: '' } : this.account;
     this.operation = this.isQuickCreate ? 'quick' : this.operation;
+    this.account.addresses = !this.account.addresses ? [this.newAddress()] : this.account.addresses;
   }
   updateAccount(account: Account) {
     this.update.emit(account);
@@ -43,5 +44,9 @@ export class AccountComponent implements OnInit {
   onCancel(event: any) {
     console.log('cancel', event);
     this.cancel.emit();
+  }
+  newAddress(): Address {
+    return { addressKey: 0, addressType: AddressType.Shipping, entityKey: 0, entityType: EntityType.Account, addressLine1: '',
+      addressCity: '', addressState: '', addressPostalCode: '', addressDefaultFlag: true, addressActiveFlag: true };
   }
 }

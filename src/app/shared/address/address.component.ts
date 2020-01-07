@@ -14,6 +14,7 @@ export class AddressComponent implements OnInit {
   @Input() countries: OptionDefinition[] = [];
   @Input() addressTypes: OptionDefinition[] = [];
   @Input() postalCodes: OptionDefinition[] = [];
+  @Input() operation: string;
   @Output() create = new EventEmitter<Address>();
   @Output() update = new EventEmitter<Address>();
 
@@ -21,7 +22,6 @@ export class AddressComponent implements OnInit {
   addressFormDef: FieldDefinition[];
   addressOriginal: Address;
   errorMessage: string;
-  operation: string;
 
   constructor() { }
 

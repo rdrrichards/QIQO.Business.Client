@@ -12,14 +12,14 @@ export interface Address {
   addressLine4?: string;
   addressCity: string;
   addressState: string;
-  addressCounty: string;
-  addressCountry: string;
+  addressCounty?: string;
+  addressCountry?: string;
   addressPostalCode: string;
   addressNotes?: string;
   addressDefaultFlag: boolean;
   addressActiveFlag: boolean;
-  addedUserID: string;
-  addedDateTime: Date;
+  addedUserID?: string;
+  addedDateTime?: Date;
   updateUserID?: string;
   updateDateTime?: Date;
 }

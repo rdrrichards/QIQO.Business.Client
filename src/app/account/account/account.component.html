@@ -12,6 +12,6 @@
     (cancel)="onCancel($event)"></qiqo-dynamic-form>
 
   <div *ngFor="let address of account.addresses">
-    <qiqo-address [address]="address"></qiqo-address>
+    <qiqo-address [address]="address" [operation]="operation"></qiqo-address>
   </div>
 </div>
