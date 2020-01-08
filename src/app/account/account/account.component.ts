@@ -30,7 +30,7 @@ export class AccountComponent implements OnInit {
     this.account = this.isQuickCreate ? { accountType: AccountType.Individual, accountName: '' } : this.account;
     this.account = !this.account ? { accountKey: 0, companyKey: 1, accountType: AccountType.Individual, accountName: '' } : this.account;
     this.operation = this.isQuickCreate ? 'quick' : this.operation;
-    this.account.addresses = !this.account.addresses ? [this.newAddress()] : this.account.addresses;
+    this.account.addresses = !this.account.addresses ? [] : this.account.addresses;
   }
   updateAccount(account: Account) {
     this.update.emit(account);

@@ -12,6 +12,9 @@
     (cancel)="onCancel($event)"></qiqo-dynamic-form>
 
   <div *ngFor="let address of account.addresses">
-    <qiqo-address [address]="address" [operation]="operation"></qiqo-address>
+    <!-- <qiqo-address [address]="address" [operation]="operation"></qiqo-address> -->
+    <div>
+      {{address.addressType.toString()}} {{address.addressLine1}} {{address.addressCity}}, {{address.addressState}} {{address.addressPostalCode}}
+    </div>
   </div>
 </div>
