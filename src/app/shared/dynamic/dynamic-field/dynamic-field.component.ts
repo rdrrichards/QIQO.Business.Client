@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { FieldDefinition } from '../field-definition';
 
 @Component({
@@ -13,40 +13,41 @@ export class DynamicFieldComponent {
   @Input() operation: string;
   @Input() submitted: boolean;
 
-  get isValid() { return this.form.controls[this.field.key].valid; }
+  get currentField() { return this.form.controls[this.field.key]; }
+  get isValid() { return this.currentField.valid; }
   get isReadOnly() { return this.operation === 'details' || this.field.isId; }
-  get isInvalid() { return (this.form.controls[this.field.key].hasError('required') ||
-      this.form.controls[this.field.key].hasError('requiredtrue') ||
-      this.form.controls[this.field.key].hasError('maxlength') ||
-      this.form.controls[this.field.key].hasError('minlength') ||
-      this.form.controls[this.field.key].hasError('min') ||
-      this.form.controls[this.field.key].hasError('max') ||
-      this.form.controls[this.field.key].hasError('email')) &&
-    (this.submitted || this.form.controls[this.field.key].touched); }
+  get isInvalid() { return (this.currentField.hasError('required') ||
+      this.currentField.hasError('requiredtrue') ||
+      this.currentField.hasError('maxlength') ||
+      this.currentField.hasError('minlength') ||
+      this.currentField.hasError('min') ||
+      this.currentField.hasError('max') ||
+      this.currentField.hasError('email')) &&
+    (this.submitted || this.currentField.touched); }
   get invalidMessage() {
-    if (this.form.controls[this.field.key].hasError('required')) {
+    if (this.currentField.hasError('required')) {
       return `${this.field.label} is required`;
     }
-    if (this.form.controls[this.field.key].hasError('requiredtrue')) {
+    if (this.currentField.hasError('requiredtrue')) {
       return `${this.field.label} is required to be selected (or true)`;
     }
-    if (this.form.controls[this.field.key].hasError('maxlength')) {
-      const err = this.form.controls[this.field.key].getError('maxlength');
+    if (this.currentField.hasError('maxlength')) {
+      const err = this.currentField.getError('maxlength');
       return `${this.field.label} is too long. The maximum length is ${err.requiredLength}. The current length is ${err.actualLength}.`;
     }
-    if (this.form.controls[this.field.key].hasError('minlength')) {
-      const err = this.form.controls[this.field.key].getError('maxlength');
+    if (this.currentField.hasError('minlength')) {
+      const err = this.currentField.getError('maxlength');
       return `${this.field.label} is too short. The minimum length is ${err.requiredLength}. The current length is ${err.actualLength}.`;
     }
-    if (this.form.controls[this.field.key].hasError('max')) {
-      const err = this.form.controls[this.field.key].getError('max');
+    if (this.currentField.hasError('max')) {
+      const err = this.currentField.getError('max');
       return `${this.field.label} value is too high. The maximum value is ${err.max}. The current value is ${err.actual}.`;
     }
-    if (this.form.controls[this.field.key].hasError('min')) {
-      const err = this.form.controls[this.field.key].getError('min');
+    if (this.currentField.hasError('min')) {
+      const err = this.currentField.getError('min');
       return `${this.field.label} value is too low. The minimum value is ${err.min}. The current low is ${err.actual}.`;
     }
-    if (this.form.controls[this.field.key].hasError('email')) {
+    if (this.currentField.hasError('email')) {
       return `${this.field.label} is not a valid email`;
     }
     return `${this.field.label} is invalid`;
